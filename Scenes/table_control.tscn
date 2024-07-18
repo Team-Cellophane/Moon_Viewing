@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://sh55b62nonuo"]
+
+[ext_resource type="Texture2D" uid="uid://cp5p66yv2fdl5" path="res://Textures/Table.png" id="1_f561x"]
+[ext_resource type="Texture2D" uid="uid://bpxfnwksrqlo2" path="res://Textures/Paper.png" id="2_0uky0"]
+
+[node name="Main_Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background_TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_f561x")
+expand_mode = 1
+
+[node name="Letter_Window" type="Window" parent="."]
+title = "Letter"
+position = Vector2i(100, 100)
+size = Vector2i(300, 200)
+
+[node name="TextureRect" type="TextureRect" parent="Letter_Window"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_0uky0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Letter_Window"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 250.0
+offset_bottom = 1246.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "This is some test text on  the letter
+
+Dragon Scales"
+fit_content = true
+
+[node name="Cypher_Window" type="Window" parent="."]
+title = "Cypher"
+position = Vector2i(100, 350)
+size = Vector2i(300, 200)
+
+[node name="TextureRect" type="TextureRect" parent="Cypher_Window"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_0uky0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Cypher_Window"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 250.0
+offset_bottom = 1246.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Here's how to solve the puzzle
+
+A * B + C"
+fit_content = true
