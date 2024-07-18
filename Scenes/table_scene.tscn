@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca5wfb2dckrpx"]
+
+[ext_resource type="Texture2D" uid="uid://cp5p66yv2fdl5" path="res://Textures/Table.png" id="1_i5oer"]
+[ext_resource type="Texture2D" uid="uid://bpxfnwksrqlo2" path="res://Textures/Paper.png" id="2_qmhc7"]
+[ext_resource type="Script" path="res://Scripts/Draggable.gd" id="3_x8cl0"]
+
+[node name="Main_Node2D" type="Node2D"]
+
+[node name="Background_Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 328)
+scale = Vector2(0.596875, 0.601852)
+texture = ExtResource("1_i5oer")
+
+[node name="Resources_Node2D" type="Node2D" parent="."]
+
+[node name="Letter_Sprite2D" type="Sprite2D" parent="Resources_Node2D"]
+position = Vector2(204, 136)
+scale = Vector2(0.183682, 0.161111)
+texture = ExtResource("2_qmhc7")
+script = ExtResource("3_x8cl0")
