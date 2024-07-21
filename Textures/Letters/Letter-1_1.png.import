@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v5beya0nc0x3"
-path="res://.godot/imported/Letter-1_Message.png-ff107eec86864576116b64fb2d3e60e2.ctex"
+uid="uid://w468src74ru6"
+path="res://.godot/imported/Letter-1_1.png-962f6f83516a38d4d07a95cd22707eb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Letters/Letter-1_Message.png"
-dest_files=["res://.godot/imported/Letter-1_Message.png-ff107eec86864576116b64fb2d3e60e2.ctex"]
+source_file="res://Textures/Letters/Letter-1_1.png"
+dest_files=["res://.godot/imported/Letter-1_1.png-962f6f83516a38d4d07a95cd22707eb0.ctex"]
 
 [params]
 

@@ -1,20 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca5wfb2dckrpx"]
+[gd_scene load_steps=3 format=3 uid="uid://ca5wfb2dckrpx"]
 
 [ext_resource type="Texture2D" uid="uid://cp5p66yv2fdl5" path="res://Textures/TEMP/Table.png" id="1_i5oer"]
-[ext_resource type="Texture2D" uid="uid://bpxfnwksrqlo2" path="res://Textures/TEMP/Paper.png" id="2_qmhc7"]
-[ext_resource type="Script" path="res://Scripts/Draggable.gd" id="3_x8cl0"]
-[ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="4_p0rbv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnx6v"]
-size = Vector2(1145.39, 810.95)
-
-[sub_resource type="Animation" id="Animation_jybm4"]
-resource_name = "Page_Expand"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6ply"]
-_data = {
-"Page_Expand": SubResource("Animation_jybm4")
-}
+[ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
 
 [node name="Main_Node2D" type="Node2D"]
 
@@ -22,86 +9,14 @@ _data = {
 position = Vector2(960, 540)
 texture = ExtResource("1_i5oer")
 
-[node name="Letter_Node2D" type="Node2D" parent="."]
-position = Vector2(-170, 191)
+[node name="Letter_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
+position = Vector2(-275, 195)
+content_prefix = "Letter-1"
 
-[node name="Letter_Sprite2D" type="Sprite2D" parent="Letter_Node2D"]
-scale = Vector2(0.412085, 0.394599)
-texture = ExtResource("2_qmhc7")
-script = ExtResource("3_x8cl0")
+[node name="Cypher_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
+position = Vector2(-275, 540)
+content_prefix = "Cypher-1"
 
-[node name="LetterMin_Button" type="Button" parent="Letter_Node2D/Letter_Sprite2D"]
-offset_left = -570.27
-offset_top = -403.534
-offset_right = -487.27
-offset_bottom = -370.534
-action_mode = 0
-icon = ExtResource("4_p0rbv")
-flat = true
-
-[node name="Area2D" type="Area2D" parent="Letter_Node2D/Letter_Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Letter_Node2D/Letter_Sprite2D/Area2D"]
-position = Vector2(0, -3.05176e-05)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_tnx6v")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Letter_Node2D/Letter_Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_c6ply")
-}
-
-[node name="Cypher_Node2D" type="Node2D" parent="."]
-position = Vector2(-170, 540)
-
-[node name="Cypher_Sprite2D" type="Sprite2D" parent="Cypher_Node2D"]
-scale = Vector2(0.412085, 0.394599)
-texture = ExtResource("2_qmhc7")
-script = ExtResource("3_x8cl0")
-
-[node name="CypherMin_Button" type="Button" parent="Cypher_Node2D/Cypher_Sprite2D"]
-offset_left = -570.27
-offset_top = -403.534
-offset_right = -487.27
-offset_bottom = -370.534
-action_mode = 0
-icon = ExtResource("4_p0rbv")
-flat = true
-
-[node name="Area2D" type="Area2D" parent="Cypher_Node2D/Cypher_Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cypher_Node2D/Cypher_Sprite2D/Area2D"]
-position = Vector2(0, -3.05176e-05)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_tnx6v")
-
-[node name="Guide_Node2D" type="Node2D" parent="."]
-position = Vector2(-170, 889)
-
-[node name="Guide_Sprite2D" type="Sprite2D" parent="Guide_Node2D"]
-scale = Vector2(0.412085, 0.394599)
-texture = ExtResource("2_qmhc7")
-script = ExtResource("3_x8cl0")
-
-[node name="GuideMin_Button" type="Button" parent="Guide_Node2D/Guide_Sprite2D"]
-offset_left = -570.27
-offset_top = -403.534
-offset_right = -487.27
-offset_bottom = -370.534
-action_mode = 0
-icon = ExtResource("4_p0rbv")
-flat = true
-
-[node name="Area2D" type="Area2D" parent="Guide_Node2D/Guide_Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guide_Node2D/Guide_Sprite2D/Area2D"]
-position = Vector2(0, -3.05176e-05)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_tnx6v")
-
-[connection signal="pressed" from="Letter_Node2D/Letter_Sprite2D/LetterMin_Button" to="Letter_Node2D/Letter_Sprite2D" method="_on_letter_min_button_pressed"]
-[connection signal="input_event" from="Letter_Node2D/Letter_Sprite2D/Area2D" to="Letter_Node2D/Letter_Sprite2D" method="_on_area_2d_input_event"]
-[connection signal="pressed" from="Cypher_Node2D/Cypher_Sprite2D/CypherMin_Button" to="Cypher_Node2D/Cypher_Sprite2D" method="_on_letter_min_button_pressed"]
-[connection signal="input_event" from="Cypher_Node2D/Cypher_Sprite2D/Area2D" to="Cypher_Node2D/Cypher_Sprite2D" method="_on_area_2d_input_event"]
-[connection signal="pressed" from="Guide_Node2D/Guide_Sprite2D/GuideMin_Button" to="Guide_Node2D/Guide_Sprite2D" method="_on_letter_min_button_pressed"]
-[connection signal="input_event" from="Guide_Node2D/Guide_Sprite2D/Area2D" to="Guide_Node2D/Guide_Sprite2D" method="_on_area_2d_input_event"]
+[node name="Guide_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
+position = Vector2(-275, 885)
+content_prefix = "Guide-1"

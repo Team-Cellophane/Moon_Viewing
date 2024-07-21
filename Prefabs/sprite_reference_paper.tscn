@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=3 uid="uid://bc0vn45w55w5y"]
+
+[ext_resource type="Texture2D" uid="uid://bpxfnwksrqlo2" path="res://Textures/TEMP/Paper.png" id="1_kw7od"]
+[ext_resource type="Script" path="res://Scripts/Draggable.gd" id="2_leodq"]
+[ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="3_r23oh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnx6v"]
+size = Vector2(1145.39, 810.95)
+
+[sub_resource type="Animation" id="Animation_jybm4"]
+resource_name = "Page_Expand"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.395), Vector2(0.6, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_nf4mn"]
+resource_name = "Page_Shrink"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.6, 1.2), Vector2(0.6, 0.395)]
+}
+
+[sub_resource type="Animation" id="Animation_yfuul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.395)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6ply"]
+_data = {
+"Page_Expand": SubResource("Animation_jybm4"),
+"Page_Shrink": SubResource("Animation_nf4mn"),
+"RESET": SubResource("Animation_yfuul")
+}
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(0.6, 0.395)
+texture = ExtResource("1_kw7od")
+script = ExtResource("2_leodq")
+
+[node name="Min_Button" type="Button" parent="."]
+offset_left = -570.27
+offset_top = -403.534
+offset_right = -487.27
+offset_bottom = -370.534
+action_mode = 0
+icon = ExtResource("3_r23oh")
+flat = true
+
+[node name="Prev_Button" type="Button" parent="."]
+offset_left = -90.0
+offset_top = 360.0
+offset_right = -6.99997
+offset_bottom = 393.0
+action_mode = 0
+icon = ExtResource("3_r23oh")
+flat = true
+
+[node name="Next_Button" type="Button" parent="."]
+offset_left = 90.0
+offset_top = 393.0
+offset_right = 173.0
+offset_bottom = 426.0
+scale = Vector2(-1, -1)
+action_mode = 0
+icon = ExtResource("3_r23oh")
+flat = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -3.05176e-05)
+shape = SubResource("RectangleShape2D_tnx6v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c6ply")
+}
+
+[node name="Content_Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.409493, 0.224989)
+
+[connection signal="pressed" from="Min_Button" to="." method="_on_min_button_pressed"]
+[connection signal="pressed" from="Prev_Button" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Next_Button" to="." method="_on_next_button_pressed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
