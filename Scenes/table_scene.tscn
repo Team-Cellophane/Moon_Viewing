@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca5wfb2dckrpx"]
+[gd_scene load_steps=6 format=3 uid="uid://ca5wfb2dckrpx"]
 
 [ext_resource type="Texture2D" uid="uid://cp5p66yv2fdl5" path="res://Textures/TEMP/Table.png" id="1_i5oer"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
+[ext_resource type="Script" path="res://Scripts/Recipe.gd" id="3_wv5ja"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5r3g"]
+bg_color = Color(0, 0.811765, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlqbt"]
+bg_color = Color(0, 0.666667, 0, 1)
 
 [node name="Main_Node2D" type="Node2D"]
 
@@ -11,7 +18,7 @@ texture = ExtResource("1_i5oer")
 
 [node name="Letter_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 position = Vector2(-275, 195)
-content_prefix = "Letters/Letter-1"
+content_prefix = "Letters/letter-1"
 
 [node name="Cypher_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 position = Vector2(-275, 540)
@@ -20,3 +27,61 @@ content_prefix = "Decipher/decipher-1"
 [node name="Guide_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 position = Vector2(-275, 885)
 content_prefix = "Guides/guide"
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_wv5ja")
+
+[node name="Recipe_Entry" type="TextEdit" parent="Node2D"]
+offset_left = 710.0
+offset_top = 992.0
+offset_right = 1210.0
+offset_bottom = 1050.21
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Type recipe here..."
+context_menu_enabled = false
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Button" type="Button" parent="Node2D"]
+offset_left = 1220.0
+offset_top = 999.0
+offset_right = 1363.0
+offset_bottom = 1043.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0, 0.6, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.6, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0.670588, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0.670588, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0.6, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0.6, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_t5r3g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mlqbt")
+action_mode = 0
+text = "Send"
+
+[node name="CorrectText" type="TextEdit" parent="Node2D"]
+visible = false
+offset_left = 1451.0
+offset_top = 1004.0
+offset_right = 1771.0
+offset_bottom = 1046.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "Recipe is correct good job asshole"
+
+[node name="IncorrectText" type="TextEdit" parent="Node2D"]
+visible = false
+offset_left = 1452.0
+offset_top = 1005.0
+offset_right = 1769.0
+offset_bottom = 1045.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Nope, shits wrong try again"
+
+[connection signal="pressed" from="Node2D/Button" to="Node2D" method="_on_button_pressed"]
