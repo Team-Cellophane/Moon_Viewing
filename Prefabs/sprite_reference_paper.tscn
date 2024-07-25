@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="3_r23oh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnx6v"]
-size = Vector2(625, 855.696)
+size = Vector2(1248, 1716.46)
 
 [sub_resource type="Animation" id="Animation_jybm4"]
 resource_name = "Page_Expand"
@@ -21,49 +21,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 0.395), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_nf4mn"]
-resource_name = "Page_Shrink"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.395)]
-}
-
-[sub_resource type="Animation" id="Animation_yfuul"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 0.395)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_aalur"]
@@ -94,6 +51,22 @@ tracks/1/keys = {
 "values": [0.0, 1.5708]
 }
 
+[sub_resource type="Animation" id="Animation_nf4mn"]
+resource_name = "Page_Shrink"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.395)]
+}
+
 [sub_resource type="Animation" id="Animation_prilc"]
 resource_name = "Page_Shrink_Landscape"
 length = 0.2
@@ -122,6 +95,33 @@ tracks/1/keys = {
 "values": [1.5708, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_yfuul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.395)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6ply"]
 _data = {
 "Page_Expand": SubResource("Animation_jybm4"),
@@ -137,10 +137,10 @@ texture = ExtResource("1_kw7od")
 script = ExtResource("2_leodq")
 
 [node name="Min_Button" type="Button" parent="."]
-offset_left = -308.0
-offset_top = -428.0
-offset_right = -225.0
-offset_bottom = -395.0
+offset_left = -613.0
+offset_top = -835.443
+offset_right = -455.0
+offset_bottom = -777.443
 size_flags_horizontal = 0
 size_flags_vertical = 0
 action_mode = 0
@@ -148,19 +148,18 @@ icon = ExtResource("3_r23oh")
 flat = true
 
 [node name="Prev_Button" type="Button" parent="."]
-offset_left = -90.0
-offset_top = 393.0
-offset_right = -6.99997
-offset_bottom = 426.0
+offset_left = -158.0
+offset_top = 777.215
+offset_bottom = 835.215
 action_mode = 0
 icon = ExtResource("3_r23oh")
 flat = true
 
 [node name="Next_Button" type="Button" parent="."]
-offset_left = 90.0
-offset_top = 426.0
-offset_right = 173.0
-offset_bottom = 459.0
+offset_left = 158.0
+offset_top = 835.443
+offset_right = 316.0
+offset_bottom = 893.443
 scale = Vector2(-1, -1)
 action_mode = 0
 icon = ExtResource("3_r23oh")
@@ -169,6 +168,7 @@ flat = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 8.75207e-06)
 shape = SubResource("RectangleShape2D_tnx6v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -177,8 +177,6 @@ libraries = {
 }
 
 [node name="Content_Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.33514e-05, -15.6929)
-scale = Vector2(0.22, 0.227997)
 
 [connection signal="pressed" from="Min_Button" to="." method="_on_min_button_pressed"]
 [connection signal="pressed" from="Prev_Button" to="." method="_on_prev_button_pressed"]

@@ -14,7 +14,7 @@ var returningHome = false
 var click_offset: Vector2
 var home_position: Vector2
 var current_page = 0
-var border_offset = 35
+var border_offset = 70
 
 
 func _ready():
@@ -71,7 +71,7 @@ func _on_next_button_pressed():
 
 func get_mouse_location_in_bounds():
 	return get_global_mouse_position().clamp(Vector2(border_offset, border_offset), 
-				 Vector2(1920 - border_offset, 1080 - border_offset)) + click_offset
+				 Vector2(3840 - border_offset, 2160 - border_offset)) + click_offset
 
 
 func load_page_content_sprite():
