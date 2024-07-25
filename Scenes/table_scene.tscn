@@ -19,6 +19,7 @@ texture = ExtResource("1_i5oer")
 [node name="Letter_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 position = Vector2(-275, 195)
 content_prefix = "Letters/letter-1"
+landscape = true
 
 [node name="Cypher_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 position = Vector2(-275, 540)

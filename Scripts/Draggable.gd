@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @export var content_prefix: String
+@export var landscape = false
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _content_sprite2d = $Content_Sprite2D
@@ -10,8 +11,10 @@ extends Sprite2D
 var isOpen = false
 var isSelected = false
 var returningHome = false
+var click_offset: Vector2
 var home_position: Vector2
 var current_page = 0
+var border_offset = 35
 
 
 func _ready():
@@ -26,7 +29,8 @@ func _input(event):
 
 func _physics_process(delta):
 	if isSelected:
-		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
+		get_mouse_location_in_bounds()
+		global_position = lerp(global_position, get_mouse_location_in_bounds(), 25 * delta)
 	elif returningHome:
 		if within_range(home_position, position):
 			returningHome = false
@@ -36,16 +40,23 @@ func _physics_process(delta):
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		click_offset = position - get_global_mouse_position()
 		isSelected = true
 		if not isOpen:
-			_animation_player.play("Page_Expand")
+			if landscape:
+				_animation_player.play("Page_Expand_Landscape")
+			else:
+				_animation_player.play("Page_Expand")
 			isOpen = true
 
 
 func _on_min_button_pressed():
 	returningHome = true
 	isOpen = false
-	_animation_player.play("Page_Shrink")
+	if landscape:
+		_animation_player.play("Page_Shrink_Landscape")
+	else:
+		_animation_player.play("Page_Shrink")
 
 
 func _on_prev_button_pressed():
@@ -56,6 +67,11 @@ func _on_prev_button_pressed():
 func _on_next_button_pressed():
 	current_page += 1
 	load_page_content_sprite()
+
+
+func get_mouse_location_in_bounds():
+	return get_global_mouse_position().clamp(Vector2(border_offset, border_offset), 
+				 Vector2(1920 - border_offset, 1080 - border_offset)) + click_offset
 
 
 func load_page_content_sprite():
