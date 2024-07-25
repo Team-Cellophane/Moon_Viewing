@@ -11,12 +11,12 @@ texture = ExtResource("1_i5oer")
 
 [node name="Letter_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 position = Vector2(-275, 195)
-content_prefix = "Letter-1"
+content_prefix = "Letters/Letter-1"
 
 [node name="Cypher_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 position = Vector2(-275, 540)
-content_prefix = "Cypher-1"
+content_prefix = "Decipher/decipher-1"
 
 [node name="Guide_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 position = Vector2(-275, 885)
-content_prefix = "Guide-1"
+content_prefix = "Guides/guide"

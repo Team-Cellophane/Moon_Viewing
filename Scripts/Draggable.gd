@@ -67,7 +67,7 @@ func load_page_content_sprite():
 
 
 func build_resource_path(page):
-	return str("res://Textures/Letters/", content_prefix, "_", page, ".png")
+	return str("res://Textures/", content_prefix, "-", page, ".png")
 
 
 func within_range(target, actual):
