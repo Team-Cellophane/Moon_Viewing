@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @export var content_prefix: String
+@export var is_letter = false
 @export var landscape = false
 
 @onready var _animation_player = $AnimationPlayer
@@ -83,7 +84,8 @@ func load_page_content_sprite():
 
 
 func build_resource_path(page):
-	return str("res://Textures/", content_prefix, "-", page, ".png")
+	var prefix = Global.get_current_letter_path() if is_letter else content_prefix
+	return str("res://Textures/", prefix, "-", page, ".png")
 
 
 func within_range(target, actual):
