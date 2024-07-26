@@ -3,6 +3,7 @@ extends Node
 var scene_number = 0
 var current_scene = null
 var previous_recipe_correct = true
+var current_highest_z_index = 0
 var scenes = 	[	SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-1","w109,42"),
 					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-2","o51,93,17,32"),
 					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-3","o7,7,11,132"),
@@ -16,7 +17,11 @@ func _ready():
 func go_to_next_scene():
 	scene_number += 1
 	call_deferred("_deferred_go_to_current_scene")
-	
+
+func get_next_z_index():
+	current_highest_z_index += 1
+	return current_highest_z_index
+
 func _deferred_go_to_current_scene():
 	current_scene.free()
 

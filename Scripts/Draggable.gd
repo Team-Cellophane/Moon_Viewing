@@ -43,6 +43,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		click_offset = position - get_global_mouse_position()
 		isSelected = true
+		z_index = Global.get_next_z_index()
 		if not isOpen:
 			if landscape:
 				_animation_player.play("Page_Expand_Landscape")
