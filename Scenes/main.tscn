@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqdtuu446wwcv"]
+
+[ext_resource type="Texture2D" uid="uid://wlf47v5opds2" path="res://Textures/Background and Menu/WindowScene1080p.png" id="1_wb45a"]
+[ext_resource type="Texture2D" uid="uid://c5lyxdsy3lwa0" path="res://Textures/Background and Menu/title-0.png" id="2_s6njg"]
+[ext_resource type="Texture2D" uid="uid://c5fp8tfmsnedo" path="res://Textures/Background and Menu/title-1.png" id="3_pj3fy"]
+[ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_0inqc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1920, 1080)
+scale = Vector2(2, 2)
+texture = ExtResource("1_wb45a")
+
+[node name="TitleMoon" type="Sprite2D" parent="."]
+position = Vector2(1852, 1196)
+texture = ExtResource("2_s6njg")
+
+[node name="TitleViewing" type="Sprite2D" parent="."]
+position = Vector2(2072, 1194)
+texture = ExtResource("3_pj3fy")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1581.0
+offset_top = 1393.0
+offset_right = 2250.0
+offset_bottom = 1586.0
+theme_override_font_sizes/font_size = 72
+text = "Play"
+
+[node name="SceneTransition" parent="." instance=ExtResource("4_0inqc")]
+color = Color(0, 0, 0, 0)
+
+[connection signal="pressed" from="Button" to="SceneTransition" method="_on_button_pressed"]
