@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="3_r23oh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnx6v"]
-size = Vector2(1248, 1716.46)
+size = Vector2(1326, 1716.46)
 
 [sub_resource type="Animation" id="Animation_jybm4"]
 resource_name = "Page_Expand"
