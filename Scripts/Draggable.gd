@@ -123,7 +123,6 @@ func _is_top_most_sprite():
 	var highest_z_index = -1
 	var top_most_sprite = null
 
-	print(get_tree().get_nodes_in_group("Papers"))
 	for sprite in get_tree().get_nodes_in_group("Papers"):
 		if _get_sprite_global_rect(sprite).has_point(mouse_position):
 			if sprite.z_index > highest_z_index:
