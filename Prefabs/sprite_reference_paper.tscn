@@ -131,7 +131,7 @@ _data = {
 "RESET": SubResource("Animation_yfuul")
 }
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" groups=["Papers"]]
 scale = Vector2(1, 0.395)
 texture = ExtResource("1_kw7od")
 script = ExtResource("2_leodq")

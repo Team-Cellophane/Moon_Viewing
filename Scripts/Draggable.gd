@@ -48,7 +48,7 @@ func _physics_process(delta):
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and _is_top_most_sprite():
 		click_offset = position - get_global_mouse_position()
 		isSelected = is_draggable
 		z_index = Global.get_next_z_index()
@@ -116,4 +116,28 @@ func build_resource_path(page):
 
 func within_range(target, actual):
 	return actual.distance_to(target) < 0.1
+
+
+func _is_top_most_sprite():
+	var mouse_position = get_viewport().get_mouse_position()
+	var highest_z_index = -1
+	var top_most_sprite = null
+
+	print(get_tree().get_nodes_in_group("Papers"))
+	for sprite in get_tree().get_nodes_in_group("Papers"):
+		if _get_sprite_global_rect(sprite).has_point(mouse_position):
+			if sprite.z_index > highest_z_index:
+				highest_z_index = sprite.z_index
+				top_most_sprite = sprite
+
+	return top_most_sprite == self
+
+
+func _get_sprite_global_rect(sprite):
+	var size = sprite.texture.get_size() * sprite.scale
+	if sprite.rotation_degrees != 0:
+		var new_size = Vector2(size.y, size.x)
+		size = new_size
+	var position = sprite.global_position - (size / 2)
+	return Rect2(position, size)
 

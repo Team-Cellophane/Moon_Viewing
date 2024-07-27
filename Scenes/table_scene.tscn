@@ -18,15 +18,18 @@ position = Vector2(1920, 1080)
 texture = ExtResource("1_i5oer")
 
 [node name="Letter_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
+z_index = 3
 position = Vector2(-540, 390)
 is_letter = true
 landscape = true
 
 [node name="Cypher_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
+z_index = 2
 position = Vector2(-540, 1080)
 content_prefix = "Decipher/decipher-1"
 
 [node name="Guide_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
+z_index = 1
 position = Vector2(-540, 1770)
 content_prefix = "Guides/guide"
 
