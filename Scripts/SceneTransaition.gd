@@ -3,7 +3,10 @@ extends ColorRect
 @onready var _animation_player = $AnimationPlayer
 
 func _ready():
-	_animation_player.play("2Fade_In")
+	if (Global.scene_number == 0):
+		_animation_player.play("3Long_Fade_In")
+	else:
+		_animation_player.play("2Fade_In")
 	
 func transition_to_next_scene():
 	# Plays the Fade animation and wait until it finishes

@@ -1,26 +1,207 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqdtuu446wwcv"]
+[gd_scene load_steps=17 format=3 uid="uid://cqdtuu446wwcv"]
 
+[ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_6eort"]
 [ext_resource type="Texture2D" uid="uid://wlf47v5opds2" path="res://Textures/Background and Menu/WindowScene1080p.png" id="1_wb45a"]
+[ext_resource type="Shader" path="res://Textures/Shaders/blur.gdshader" id="2_0pdv8"]
 [ext_resource type="Texture2D" uid="uid://c5lyxdsy3lwa0" path="res://Textures/Background and Menu/title-0.png" id="2_s6njg"]
 [ext_resource type="Texture2D" uid="uid://c5fp8tfmsnedo" path="res://Textures/Background and Menu/title-1.png" id="3_pj3fy"]
 [ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_0inqc"]
+[ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="6_64hv1"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mfoq"]
+shader = ExtResource("2_0pdv8")
+shader_parameter/strength = 0
+
+[sub_resource type="Animation" id="Animation_dh8qh"]
+resource_name = "blur_on"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 2,
+"values": [10, 0]
+}
+
+[sub_resource type="Animation" id="Animation_2u4my"]
+resource_name = "blur_on"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 2,
+"values": [0, 10]
+}
+
+[sub_resource type="Animation" id="Animation_x1fux"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e25uo"]
+_data = {
+"Blur_Off": SubResource("Animation_dh8qh"),
+"Blur_On": SubResource("Animation_2u4my"),
+"RESET": SubResource("Animation_x1fux")
+}
+
+[sub_resource type="Animation" id="Animation_87wgi"]
+resource_name = "Fade_In"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleViewing:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.5, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleMoon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.5, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lw0ej"]
+resource_name = "Fade_Out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleViewing:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleMoon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g25p4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleViewing:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleMoon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxeqk"]
+_data = {
+"Fade_In": SubResource("Animation_87wgi"),
+"Fade_Out": SubResource("Animation_lw0ej"),
+"RESET": SubResource("Animation_g25p4")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6eort")
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_1mfoq")
 position = Vector2(1920, 1080)
 scale = Vector2(2, 2)
 texture = ExtResource("1_wb45a")
 
-[node name="TitleMoon" type="Sprite2D" parent="."]
-position = Vector2(1852, 1196)
+[node name="BackgroundAnimationPlayer" type="AnimationPlayer" parent="Background"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_e25uo")
+}
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TitleMoon" type="Sprite2D" parent="Node"]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(1852, 1200)
 texture = ExtResource("2_s6njg")
 
-[node name="TitleViewing" type="Sprite2D" parent="."]
-position = Vector2(2072, 1194)
+[node name="TitleViewing" type="Sprite2D" parent="Node"]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(2072, 1200)
 texture = ExtResource("3_pj3fy")
 
-[node name="Button" type="Button" parent="."]
+[node name="TitleAnimationPlayer" type="AnimationPlayer" parent="Node"]
+libraries = {
+"": SubResource("AnimationLibrary_cxeqk")
+}
+
+[node name="ContinueButton" type="Button" parent="."]
+visible = false
+offset_left = 3111.0
+offset_top = 1918.0
+offset_right = 3780.0
+offset_bottom = 2111.0
+theme_override_font_sizes/font_size = 72
+text = "Continue"
+
+[node name="PlayButton" type="Button" parent="."]
+visible = false
 offset_left = 1581.0
 offset_top = 1393.0
 offset_right = 2250.0
@@ -28,7 +209,13 @@ offset_bottom = 1586.0
 theme_override_font_sizes/font_size = 72
 text = "Play"
 
-[node name="SceneTransition" parent="." instance=ExtResource("4_0inqc")]
-color = Color(0, 0, 0, 0)
+[node name="PlaintextLetter" parent="." instance=ExtResource("6_64hv1")]
+position = Vector2(1920, 3000)
+is_letter = true
+is_draggable = false
+min_button_enabled = false
 
-[connection signal="pressed" from="Button" to="SceneTransition" method="_on_button_pressed"]
+[node name="SceneTransition" parent="." instance=ExtResource("4_0inqc")]
+
+[connection signal="pressed" from="ContinueButton" to="SceneTransition" method="_on_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

@@ -4,7 +4,7 @@ var scene_number = 0
 var current_scene = null
 var previous_recipe_correct = true
 var current_highest_z_index = 0
-var scenes = 	[	SceneInfo.new("res://Scenes/main.tscn","",""),
+var scenes = 	[	SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-1",""),
 					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-1","w109,42"),
 					SceneInfo.new("res://Scenes/main.tscn","",""),
 					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-2","o51,93,17,32"),

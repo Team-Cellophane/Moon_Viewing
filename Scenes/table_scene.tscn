@@ -90,5 +90,9 @@ theme_override_font_sizes/font_size = 25
 text = "Nope, shits wrong try again"
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_v47ms")]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 3890.0
+offset_bottom = 2210.0
 
 [connection signal="pressed" from="Node2D/Button" to="SceneTransition" method="_on_button_pressed"]

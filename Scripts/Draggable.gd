@@ -3,25 +3,31 @@ extends Sprite2D
 @export var content_prefix: String
 @export var is_letter = false
 @export var landscape = false
+@export var is_draggable = true
+@export var min_button_enabled = true
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _content_sprite2d = $Content_Sprite2D
 @onready var _prev_button = $Prev_Button
 @onready var _next_button = $Next_Button
+@onready var _min_button = $Min_Button
 
 var isOpen = false
 var isSelected = false
 var returningHome = false
 var click_offset: Vector2
 var home_position: Vector2
+var target_position = null
 var current_page = 0
 var border_offset = 70
 
 
 func _ready():
+	_min_button.visible = min_button_enabled
 	home_position = position
 	load_page_content_sprite()
 	
+
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
@@ -37,19 +43,16 @@ func _physics_process(delta):
 			returningHome = false
 		else:
 			position = lerp(position, home_position, 15 * delta)
+	elif (!is_draggable and target_position != null and !within_range(target_position, position)):
+		global_position = lerp(global_position, target_position, 25 * delta)
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		click_offset = position - get_global_mouse_position()
-		isSelected = true
+		isSelected = is_draggable
 		z_index = Global.get_next_z_index()
-		if not isOpen:
-			if landscape:
-				_animation_player.play("Page_Expand_Landscape")
-			else:
-				_animation_player.play("Page_Expand")
-			isOpen = true
+		do_open()
 
 
 func _on_min_button_pressed():
@@ -69,6 +72,28 @@ func _on_prev_button_pressed():
 func _on_next_button_pressed():
 	current_page += 1
 	load_page_content_sprite()
+
+
+func do_open():
+	if not isOpen:
+		if landscape:
+			_animation_player.play("Page_Expand_Landscape")
+		else:
+			_animation_player.play("Page_Expand")
+		isOpen = true
+
+
+func do_close():
+	if isOpen:
+		if landscape:
+			_animation_player.play("Page_Shrink_Landscape")
+		else:
+			_animation_player.play("Page_Shrink")
+		isOpen = false
+
+
+func set_target_position(position : Vector2):
+	target_position = position
 
 
 func get_mouse_location_in_bounds():
