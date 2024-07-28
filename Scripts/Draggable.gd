@@ -8,6 +8,7 @@ extends Sprite2D
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _content_sprite2d = $Content_Sprite2D
+@onready var _salutation_sprite2d = $Salutation_Sprite2D2
 @onready var _prev_button = $Prev_Button
 @onready var _next_button = $Next_Button
 @onready var _min_button = $Min_Button
@@ -107,6 +108,15 @@ func load_page_content_sprite():
 		_content_sprite2d.texture = load(resource_path)
 		_prev_button.visible = ResourceLoader.exists(build_resource_path(current_page - 1))
 		_next_button.visible = ResourceLoader.exists(build_resource_path(current_page + 1))
+		
+	if (is_letter and landscape and current_page == 0):
+		_salutation_sprite2d.visible = true
+		if (Global.previous_recipe_correct):
+			_salutation_sprite2d.texture = load("res://Textures/Salutations/salutation-0.png")
+		else:
+			_salutation_sprite2d.texture = load("res://Textures/Salutations/salutation-1.png")
+	else:
+		_salutation_sprite2d.visible = false
 
 
 func build_resource_path(page):

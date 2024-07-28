@@ -178,6 +178,9 @@ libraries = {
 
 [node name="Content_Sprite2D" type="Sprite2D" parent="."]
 
+[node name="Salutation_Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+
 [connection signal="pressed" from="Min_Button" to="." method="_on_min_button_pressed"]
 [connection signal="pressed" from="Prev_Button" to="." method="_on_prev_button_pressed"]
 [connection signal="pressed" from="Next_Button" to="." method="_on_next_button_pressed"]
