@@ -1,7 +1,7 @@
 extends Sprite2D
 
-@export var content_prefix: String
 @export var is_letter = false
+@export var is_decipher = false#TODO make this an enum
 @export var landscape = false
 @export var is_draggable = true
 @export var min_button_enabled = true
@@ -110,7 +110,13 @@ func load_page_content_sprite():
 
 
 func build_resource_path(page):
-	var prefix = Global.get_current_letter_path() if is_letter else content_prefix
+	var prefix
+	if (is_letter):
+		prefix = Global.get_current_letter_path()
+	elif (is_decipher):
+		prefix = Global.get_current_decipher_path()
+	else:
+		prefix = "Guides/guide"
 	return str("res://Textures/", prefix, "-", page, ".png")
 
 

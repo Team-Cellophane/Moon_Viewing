@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 
 
-uniform int strength: hint_range(0, 512) = 0;
+uniform float strength: hint_range(0, 512) = 0;
 
 vec4 blur_size(sampler2D tex,vec2 fragCoord, vec2 pixelSize) {
     

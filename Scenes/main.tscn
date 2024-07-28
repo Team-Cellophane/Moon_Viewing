@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mfoq"]
 shader = ExtResource("2_0pdv8")
-shader_parameter/strength = 0
+shader_parameter/strength = 0.0
 
 [sub_resource type="Animation" id="Animation_dh8qh"]
 resource_name = "blur_on"
@@ -216,6 +216,7 @@ is_draggable = false
 min_button_enabled = false
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_0inqc")]
+z_index = 99
 
 [connection signal="pressed" from="ContinueButton" to="SceneTransition" method="_on_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

@@ -25,6 +25,10 @@ func _ready():
 
 func _display_letter_or_continue():
 	await get_tree().create_timer(5).timeout
+	if (Global.get_current_letter_path() != ""):
+		_background_animation_player.play("Blur_On")
+		_letter.do_open()
+		_letter.set_target_position(Vector2(1920, 1080))
 	_continue_button.visible = true
 	
 

@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cgbql8jl16jur" path="res://Textures/TEMP/Table_Scroll.png" id="1_whhun"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="3_wv5ja"]
-[ext_resource type="PackedScene" uid="uid://jtysyhn2t6k8" path="res://Prefabs/ingredient_slot.tscn" id="4_nr6wd"]
-[ext_resource type="PackedScene" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
+[ext_resource type="PackedScene" path="res://Prefabs/ingredient_slot.tscn" id="4_nr6wd"]
+[ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
 [ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="5_8fcpu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5r3g"]
@@ -28,12 +28,11 @@ landscape = true
 [node name="Cypher_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 z_index = 2
 position = Vector2(-540, 1080)
-content_prefix = "Decipher/decipher-1"
+is_decipher = true
 
 [node name="Guide_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 z_index = 1
 position = Vector2(-540, 1770)
-content_prefix = "Guides/guide"
 
 [node name="RecipeHandler_Node2D" type="Node2D" parent="."]
 script = ExtResource("3_wv5ja")
@@ -111,9 +110,5 @@ text = "Nope, shits wrong try again"
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_v47ms")]
 z_index = 99
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 3890.0
-offset_bottom = 2210.0
 
 [connection signal="pressed" from="RecipeHandler_Node2D/Submit_Button" to="SceneTransition" method="_on_button_pressed"]

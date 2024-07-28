@@ -4,15 +4,33 @@ var scene_number = 0
 var current_scene = null
 var previous_recipe_correct = true
 var current_highest_z_index = 0
-var scenes = 	[	SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-1",""),
-					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-1","w109,42"),
-					SceneInfo.new("res://Scenes/main.tscn","",""),
-					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-2","o51,93,17,32"),
-					SceneInfo.new("res://Scenes/main.tscn","",""),
-					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-3","o7,7,11,132"),
-					SceneInfo.new("res://Scenes/main.tscn","",""),
-					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-4","w59,125,45,15,58,32"),
-					SceneInfo.new("res://Scenes/main.tscn","","")
+var scenes = 	[	SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-1","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-1","Decipher/decipher-1","w109,42"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-2","Decipher/decipher-1","o51,93,17,32"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-3","Decipher/decipher-1","o7,7,11,132"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-4","Decipher/decipher-1","w59,125,45,15,58,32"),
+					SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-2","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-5","Decipher/decipher-2","w109,42"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-6","Decipher/decipher-2","o51,93,17,32"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-7","Decipher/decipher-2","o7,7,11,132"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-8","Decipher/decipher-2","w59,125,45,15,58,32"),
+					SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-3","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-9","Decipher/decipher-3","w109,42"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-10","Decipher/decipher-3","o51,93,17,32"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-11","Decipher/decipher-3","o7,7,11,132"),
+					SceneInfo.new("res://Scenes/main.tscn","","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-12","Decipher/decipher-3","w59,125,45,15,58,32"),
+					SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-4","",""),
+					SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-13","Decipher/decipher-3","w59,125,45,15,58,32"),#TODO create decipher 4
+					SceneInfo.new("res://Scenes/main.tscn","","","")
 				]
 
 func _ready():
@@ -39,24 +57,26 @@ func _deferred_go_to_current_scene():
 	get_tree().root.add_child(current_scene)
 	
 func get_current_letter_path():
-	print(str(scene_number) + " letter = " + scenes[scene_number].letter)
 	return scenes[scene_number].letter
 	
+func get_current_decipher_path():
+	return scenes[scene_number].decipher
+	
 func get_current_recipe():
-	print(str(scene_number) + " letter = " + scenes[scene_number].recipe)
 	return scenes[scene_number].recipe
 	
 func get_current_scene_path():
-	print(str(scene_number) + " letter = " + scenes[scene_number].path)
 	return scenes[scene_number].path
 
 class SceneInfo:
 	
 	var path : String
 	var letter : String
+	var decipher : String
 	var recipe : String
 	
-	func _init(p, l, r):
+	func _init(p, l, d, r):
 		path = p
 		letter = l
+		decipher = d
 		recipe = r
