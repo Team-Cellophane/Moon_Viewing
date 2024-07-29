@@ -8,8 +8,11 @@ script = ExtResource("1_2ubwl")
 [node name="Ingredient_Button" type="Button" parent="."]
 offset_right = 192.0
 offset_bottom = 192.0
+icon_alignment = 1
+expand_icon = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 203.0
 offset_top = 139.0
 offset_right = 245.0
@@ -18,8 +21,9 @@ theme_override_font_sizes/normal_font_size = 48
 text = "X"
 
 [node name="Recipe_Entry" type="TextEdit" parent="."]
+visible = false
 offset_left = 241.0
-offset_top = 123.0
+offset_top = 104.0
 offset_right = 365.0
 offset_bottom = 200.0
 theme_override_font_sizes/font_size = 60

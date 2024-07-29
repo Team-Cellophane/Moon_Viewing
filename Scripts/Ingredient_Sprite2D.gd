@@ -8,6 +8,8 @@ extends Sprite2D
 @onready var _info_index = $Sprite2D/Node2D/Index
 @onready var _info_text = $Sprite2D/Node2D/Name
 
+signal ingredient_selected
+
 var ingredient
 
 func _ready():
@@ -24,3 +26,7 @@ func _on_button_mouse_entered():
 
 func _on_button_mouse_exited():
 	_info.visible = false
+
+
+func _on_button_pressed():
+	ingredient_selected.emit(_ingredient_index, _ingredient_sprite.texture)
