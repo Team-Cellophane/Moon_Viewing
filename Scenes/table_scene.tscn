@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca5wfb2dckrpx"]
+[gd_scene load_steps=10 format=3 uid="uid://ca5wfb2dckrpx"]
 
 [ext_resource type="Texture2D" uid="uid://cgbql8jl16jur" path="res://Textures/TEMP/Table_Scroll.png" id="1_whhun"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
+[ext_resource type="PackedScene" uid="uid://cjlnf28s6hpam" path="res://Prefabs/ingredient_button.tscn" id="3_2rngn"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="3_wv5ja"]
-[ext_resource type="PackedScene" path="res://Prefabs/ingredient_slot.tscn" id="4_nr6wd"]
+[ext_resource type="PackedScene" uid="uid://jtysyhn2t6k8" path="res://Prefabs/ingredient_slot.tscn" id="4_nr6wd"]
 [ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
 [ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="5_8fcpu"]
 
@@ -33,6 +34,8 @@ is_decipher = true
 [node name="Guide_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 z_index = 1
 position = Vector2(-540, 1770)
+
+[node name="Ingredient_Sprite2D" parent="." instance=ExtResource("3_2rngn")]
 
 [node name="RecipeHandler_Node2D" type="Node2D" parent="."]
 script = ExtResource("3_wv5ja")
@@ -109,6 +112,7 @@ theme_override_font_sizes/font_size = 25
 text = "Nope, shits wrong try again"
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_v47ms")]
+visible = false
 z_index = 99
 
 [connection signal="pressed" from="RecipeHandler_Node2D/Submit_Button" to="SceneTransition" method="_on_button_pressed"]
