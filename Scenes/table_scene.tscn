@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://ca5wfb2dckrpx"]
 
-[ext_resource type="Texture2D" uid="uid://cgbql8jl16jur" path="res://Textures/TEMP/Table_Scroll.png" id="1_whhun"]
+[ext_resource type="Texture2D" uid="uid://cp5p66yv2fdl5" path="res://Textures/TEMP/Table.png" id="1_j2n3u"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
 [ext_resource type="PackedScene" uid="uid://cjlnf28s6hpam" path="res://Prefabs/ingredient_button.tscn" id="3_2rngn"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="3_wv5ja"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
 [ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="5_8fcpu"]
 [ext_resource type="Texture2D" uid="uid://bsj714qxsgal1" path="res://Textures/Ingredients/base_hover.png" id="6_3p6dy"]
-[ext_resource type="Texture2D" uid="uid://cntifoprap5da" path="res://Textures/Ingredients/water.png" id="6_woolg"]
+[ext_resource type="Texture2D" uid="uid://dn0vmojkw8gul" path="res://Textures/TEMP/Recipe_Scroll.png" id="6_oeaio"]
 [ext_resource type="Texture2D" uid="uid://bivahhawk0w1o" path="res://Textures/TEMP/Ingredient_Drawer.png" id="7_2xc2b"]
 
 [sub_resource type="Animation" id="Animation_hojro"]
@@ -58,7 +58,7 @@ bg_color = Color(0, 0.666667, 0, 1)
 
 [node name="Background_Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1920, 1080)
-texture = ExtResource("1_whhun")
+texture = ExtResource("1_j2n3u")
 
 [node name="Letter_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 z_index = 3
@@ -672,47 +672,41 @@ _ingredient_index = 144
 
 [node name="RecipeScroll_Node2D" type="Node2D" parent="RecipeHandler_Node2D"]
 
-[node name="Base_Button" type="TextureButton" parent="RecipeHandler_Node2D/RecipeScroll_Node2D"]
-offset_left = 433.0
-offset_top = 1917.0
-offset_right = 651.0
-offset_bottom = 2135.0
+[node name="Scroll_Sprite2D" type="Sprite2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D"]
+position = Vector2(1919, 2025)
+texture = ExtResource("6_oeaio")
+
+[node name="Base_Button" type="TextureButton" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
+offset_left = -1486.0
+offset_top = -108.0
+offset_right = -1268.0
+offset_bottom = 110.0
 texture_hover = ExtResource("6_3p6dy")
 stretch_mode = 0
 
-[node name="Base_Button_1" type="Button" parent="RecipeHandler_Node2D/RecipeScroll_Node2D"]
-visible = false
-offset_left = 433.0
-offset_top = 1917.0
-offset_right = 650.0
-offset_bottom = 2135.0
-icon = ExtResource("6_woolg")
-icon_alignment = 1
-expand_icon = true
+[node name="Ingredient-1_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
+position = Vector2(-1135, -92)
 
-[node name="Ingredient-1_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(784, 1933)
+[node name="Ingredient-2_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
+position = Vector2(-746, -93)
 
-[node name="Ingredient-2_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(1173, 1932)
+[node name="Ingredient-3_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
+position = Vector2(-354, -93)
 
-[node name="Ingredient-3_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(1565, 1932)
+[node name="Ingredient-4_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
+position = Vector2(36, -93)
 
-[node name="Ingredient-4_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(1955, 1932)
+[node name="Ingredient-5_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
+position = Vector2(425, -94)
 
-[node name="Ingredient-5_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(2344, 1931)
+[node name="Ingredient-6_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
+position = Vector2(815, -94)
 
-[node name="Ingredient-6_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(2734, 1931)
-
-[node name="Submit_Button" type="Button" parent="RecipeHandler_Node2D/RecipeScroll_Node2D"]
-offset_left = 3140.0
-offset_top = 1931.0
-offset_right = 3402.0
-offset_bottom = 2123.0
+[node name="Submit_Button" type="Button" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
+offset_left = 1221.0
+offset_top = -94.0
+offset_right = 1483.0
+offset_bottom = 98.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -760,6 +754,5 @@ visible = false
 z_index = 99
 
 [connection signal="pressed" from="RecipeHandler_Node2D/Drawer_Node2D/Handle_Button" to="RecipeHandler_Node2D" method="_on_handle_button_pressed"]
-[connection signal="pressed" from="RecipeHandler_Node2D/RecipeScroll_Node2D/Base_Button" to="RecipeHandler_Node2D" method="_on_base_button_pressed"]
-[connection signal="pressed" from="RecipeHandler_Node2D/RecipeScroll_Node2D/Base_Button_1" to="RecipeHandler_Node2D" method="_on_base_button_pressed"]
-[connection signal="pressed" from="RecipeHandler_Node2D/RecipeScroll_Node2D/Submit_Button" to="SceneTransition" method="_on_button_pressed"]
+[connection signal="pressed" from="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D/Base_Button" to="RecipeHandler_Node2D" method="_on_base_button_pressed"]
+[connection signal="pressed" from="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D/Submit_Button" to="SceneTransition" method="_on_button_pressed"]

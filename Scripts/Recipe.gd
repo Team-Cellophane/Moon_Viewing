@@ -1,12 +1,12 @@
 extends Node2D
 
-@onready var _base_button = $RecipeScroll_Node2D/Base_Button
-@onready var _ingredient_one = $"RecipeScroll_Node2D/Ingredient-1_Node2D"
-@onready var _ingredient_two = $"RecipeScroll_Node2D/Ingredient-2_Node2D"
-@onready var _ingredient_three = $"RecipeScroll_Node2D/Ingredient-3_Node2D"
-@onready var _ingredient_four = $"RecipeScroll_Node2D/Ingredient-4_Node2D"
-@onready var _ingredient_five = $"RecipeScroll_Node2D/Ingredient-5_Node2D"
-@onready var _ingredient_six = $"RecipeScroll_Node2D/Ingredient-6_Node2D"
+@onready var _base_button = $RecipeScroll_Node2D/Scroll_Sprite2D/Base_Button
+@onready var _ingredient_one = $"RecipeScroll_Node2D/Scroll_Sprite2D/Ingredient-1_Node2D"
+@onready var _ingredient_two = $"RecipeScroll_Node2D/Scroll_Sprite2D/Ingredient-2_Node2D"
+@onready var _ingredient_three = $"RecipeScroll_Node2D/Scroll_Sprite2D/Ingredient-3_Node2D"
+@onready var _ingredient_four = $"RecipeScroll_Node2D/Scroll_Sprite2D/Ingredient-4_Node2D"
+@onready var _ingredient_five = $"RecipeScroll_Node2D/Scroll_Sprite2D/Ingredient-5_Node2D"
+@onready var _ingredient_six = $"RecipeScroll_Node2D/Scroll_Sprite2D/Ingredient-6_Node2D"
 @onready var _correct_text = $CorrectText
 @onready var _incorrect_text = $IncorrectText
 @onready var _animation_player = $Drawer_Node2D/Drawer_AnimationPlayer
