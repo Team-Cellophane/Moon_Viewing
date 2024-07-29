@@ -692,19 +692,19 @@ stretch_mode = 0
 position = Vector2(-1135, -92)
 
 [node name="Ingredient-2_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(-746, -93)
+position = Vector2(-746, -92)
 
 [node name="Ingredient-3_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(-354, -93)
+position = Vector2(-354, -92)
 
 [node name="Ingredient-4_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(36, -93)
+position = Vector2(36, -92)
 
 [node name="Ingredient-5_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(425, -94)
+position = Vector2(424, -92)
 
 [node name="Ingredient-6_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" instance=ExtResource("4_nr6wd")]
-position = Vector2(815, -94)
+position = Vector2(814, -92)
 
 [node name="Submit_Button" type="Button" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
 offset_left = 1221.0

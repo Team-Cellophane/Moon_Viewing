@@ -2,6 +2,7 @@ extends Node2D
 
 signal slot_selected
 
+@onready var _ingredient = $Ingredient_Sprite2D
 @onready var _label = $RichTextLabel
 @onready var _quantity = $Recipe_Entry
 
@@ -10,6 +11,9 @@ var ingredient_index = -1
 func _on_ingredient_slot_button_pressed():
 	slot_selected.emit(self)
 	
+
+func set_ingredient_texture(new_texture):
+	_ingredient.texture = new_texture
 
 func set_ingredient_index(index):
 	ingredient_index = index
