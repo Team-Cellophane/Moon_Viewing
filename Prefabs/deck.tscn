@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://e3jaxipka857"]
+
+[ext_resource type="Texture2D" uid="uid://bnj6pkrvyuej8" path="res://Textures/Cards/red_back.png" id="1_lf60t"]
+[ext_resource type="Script" path="res://Scripts/Deck.gd" id="2_1upyi"]
+[ext_resource type="Texture2D" uid="uid://bpxfnwksrqlo2" path="res://Textures/TEMP/Paper.png" id="3_8ta31"]
+[ext_resource type="PackedScene" path="res://Prefabs/card.tscn" id="4_qinqf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4tq6"]
+size = Vector2(365.714, 600)
+
+[node name="Deck" type="Sprite2D" groups=["Papers"]]
+position = Vector2(3503, 793)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_lf60t")
+script = ExtResource("2_1upyi")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.000488281, 0)
+shape = SubResource("RectangleShape2D_l4tq6")
+
+[node name="Display" type="Node2D" parent="."]
+visible = false
+z_index = 300
+
+[node name="Background" type="Sprite2D" parent="Display"]
+position = Vector2(-748.571, -772.857)
+scale = Vector2(1.45227, 0.471195)
+texture = ExtResource("3_8ta31")
+
+[node name="Card" parent="Display" instance=ExtResource("4_qinqf")]
+position = Vector2(0, -780)
+scale = Vector2(1, 1)
+card = "1b"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Display"]
+offset_left = -1583.0
+offset_top = -1060.0
+offset_right = -1125.0
+offset_bottom = -855.0
+scale = Vector2(2.857, 2.857)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]Click to draw card
+Scroll to select card
+Right click to reset"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Display"]
+offset_left = -171.0
+offset_top = -1003.0
+offset_right = -49.0
+offset_bottom = -841.0
+scale = Vector2(2.857, 2.857)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 39
+bbcode_enabled = true
+text = "[center]Deck
+is 
+empty"
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

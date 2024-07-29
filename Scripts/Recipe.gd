@@ -2,8 +2,6 @@ extends Node2D
 
 @onready var _base_button = $RecipeScroll_Node2D/Scroll_Sprite2D/Base_Button
 @onready var _recipe_scroll = $RecipeScroll_Node2D/Scroll_Sprite2D
-@onready var _correct_text = $CorrectText
-@onready var _incorrect_text = $IncorrectText
 @onready var _animation_player = $Drawer_Node2D/Drawer_AnimationPlayer
 
 var drawer_open = false

@@ -36,6 +36,7 @@ func _input(event):
 
 
 func _physics_process(delta):
+	z_index = Global.get_z_index(name)
 	if isSelected:
 		get_mouse_location_in_bounds()
 		global_position = lerp(global_position, get_mouse_location_in_bounds(), 25 * delta)
@@ -52,7 +53,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and _is_top_most_sprite():
 		click_offset = position - get_global_mouse_position()
 		isSelected = is_draggable
-		z_index = Global.get_next_z_index()
+		Global.set_z_indecies(name)
 		do_open()
 
 

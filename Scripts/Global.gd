@@ -3,9 +3,14 @@ extends Node
 var scene_number = 0
 var current_scene = null
 var previous_recipe_correct = true
-var current_highest_z_index = 0
 var scenes
 var ingredients
+
+var max_z_index = 200
+var letter_z_index = 200
+var decipher_z_index = 150
+var guide_z_index = 100
+var card_z_index_start = 50
 
 func _ready():
 	set_scenes()
@@ -20,9 +25,37 @@ func go_to_next_scene():
 	scene_number += 1
 	call_deferred("_deferred_go_to_current_scene")
 
-func get_next_z_index():
-	current_highest_z_index += 1
-	return current_highest_z_index
+func set_z_indecies(new_top_name: String):
+	if (new_top_name == "card"):
+		decrease_z_indicies_greater_than(card_z_index_start)
+		card_z_index_start = max_z_index
+	if (new_top_name == "Letter_Sprite2D"):
+		decrease_z_indicies_greater_than(letter_z_index)
+		letter_z_index = max_z_index
+	if (new_top_name == "Decipher_Sprite2D"):
+		decrease_z_indicies_greater_than(decipher_z_index)
+		decipher_z_index = max_z_index
+	if (new_top_name == "Guide_Sprite2D"):
+		decrease_z_indicies_greater_than(guide_z_index)
+		guide_z_index = max_z_index
+		
+		
+func decrease_z_indicies_greater_than(z_index: int):
+	letter_z_index = letter_z_index - 50 if letter_z_index > z_index else letter_z_index
+	decipher_z_index = decipher_z_index - 50 if decipher_z_index > z_index else decipher_z_index
+	guide_z_index = guide_z_index - 50 if guide_z_index > z_index else guide_z_index
+	card_z_index_start = card_z_index_start - 50 if card_z_index_start > z_index else card_z_index_start
+
+func get_z_index(object_name):
+	if (object_name == "card"):
+		return card_z_index_start
+	if (object_name == "Letter_Sprite2D"):
+		return letter_z_index
+	if (object_name == "Decipher_Sprite2D"):
+		return decipher_z_index
+	if (object_name == "Guide_Sprite2D"):
+		return guide_z_index
+	return 0
 
 func _deferred_go_to_current_scene():
 	current_scene.free()

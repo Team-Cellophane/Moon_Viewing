@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvydnu4kmxalf"]
+
+[ext_resource type="Texture2D" uid="uid://2aft1hmnoku4" path="res://Textures/Cards/1b.png" id="1_jkae2"]
+[ext_resource type="Script" path="res://Scripts/Card.gd" id="2_5jlvm"]
+[ext_resource type="Texture2D" uid="uid://b20k4tayww7wc" path="res://Textures/Cards/red_border.png" id="3_jvfju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4tq6"]
+size = Vector2(365.714, 600)
+
+[node name="Card" type="Sprite2D" groups=["Papers"]]
+z_index = 97
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_jkae2")
+script = ExtResource("2_5jlvm")
+
+[node name="Border" type="Sprite2D" parent="."]
+texture = ExtResource("3_jvfju")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.000488281, 0)
+shape = SubResource("RectangleShape2D_l4tq6")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

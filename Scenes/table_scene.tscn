@@ -1,11 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://ca5wfb2dckrpx"]
+[gd_scene load_steps=17 format=3 uid="uid://ca5wfb2dckrpx"]
 
 [ext_resource type="Texture2D" uid="uid://cp5p66yv2fdl5" path="res://Textures/TEMP/Table.png" id="1_j2n3u"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
 [ext_resource type="PackedScene" uid="uid://cjlnf28s6hpam" path="res://Prefabs/ingredient_button.tscn" id="3_2rngn"]
+[ext_resource type="PackedScene" uid="uid://e3jaxipka857" path="res://Prefabs/deck.tscn" id="3_km6p8"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="3_wv5ja"]
 [ext_resource type="PackedScene" uid="uid://jtysyhn2t6k8" path="res://Prefabs/ingredient_slot.tscn" id="4_nr6wd"]
-[ext_resource type="PackedScene" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
+[ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
 [ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="5_8fcpu"]
 [ext_resource type="Texture2D" uid="uid://bsj714qxsgal1" path="res://Textures/Ingredients/base_hover.png" id="6_3p6dy"]
 [ext_resource type="Texture2D" uid="uid://dn0vmojkw8gul" path="res://Textures/TEMP/Recipe_Scroll.png" id="6_oeaio"]
@@ -66,7 +67,7 @@ position = Vector2(-540, 390)
 is_letter = true
 landscape = true
 
-[node name="Cypher_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
+[node name="Decipher_Sprite2D" parent="." instance=ExtResource("2_ldjf2")]
 z_index = 2
 position = Vector2(-540, 1080)
 is_decipher = true
@@ -75,11 +76,17 @@ is_decipher = true
 z_index = 1
 position = Vector2(-540, 1770)
 
+[node name="CardLayer" type="Node2D" parent="."]
+
+[node name="Deck" parent="." instance=ExtResource("3_km6p8")]
+position = Vector2(3726, 1734)
+
 [node name="RecipeHandler_Node2D" type="Node2D" parent="."]
+z_index = 300
 script = ExtResource("3_wv5ja")
 
 [node name="Drawer_Node2D" type="Node2D" parent="RecipeHandler_Node2D"]
-z_index = 50
+z_index = 300
 position = Vector2(1920, -404)
 
 [node name="Drawer_AnimationPlayer" type="AnimationPlayer" parent="RecipeHandler_Node2D/Drawer_Node2D"]
@@ -673,7 +680,7 @@ position = Vector2(1404, 311)
 _ingredient_index = 144
 
 [node name="RecipeScroll_Node2D" type="Node2D" parent="RecipeHandler_Node2D"]
-z_index = 50
+z_index = 300
 
 [node name="Scroll_Sprite2D" type="Sprite2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D"]
 z_index = 50
@@ -733,29 +740,8 @@ icon = ExtResource("5_8fcpu")
 alignment = 0
 icon_alignment = 2
 
-[node name="CorrectText" type="TextEdit" parent="RecipeHandler_Node2D"]
-visible = false
-offset_left = 2981.0
-offset_top = 1804.0
-offset_right = 3431.0
-offset_bottom = 1879.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "Recipe is correct good job asshole"
-
-[node name="IncorrectText" type="TextEdit" parent="RecipeHandler_Node2D"]
-visible = false
-offset_left = 2981.0
-offset_top = 1804.0
-offset_right = 3431.0
-offset_bottom = 1879.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "Nope, shits wrong try again"
-
 [node name="SceneTransition" parent="." instance=ExtResource("4_v47ms")]
-visible = false
-z_index = 99
+z_index = 1000
 
 [connection signal="pressed" from="RecipeHandler_Node2D/Drawer_Node2D/Handle_Button" to="RecipeHandler_Node2D" method="_on_handle_button_pressed"]
 [connection signal="ingredient_selected" from="RecipeHandler_Node2D/Drawer_Node2D/Ingredient-1_Sprite2D" to="RecipeHandler_Node2D" method="_on_ingredient_selected"]
