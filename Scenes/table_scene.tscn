@@ -1,12 +1,52 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca5wfb2dckrpx"]
+[gd_scene load_steps=16 format=3 uid="uid://ca5wfb2dckrpx"]
 
 [ext_resource type="Texture2D" uid="uid://cgbql8jl16jur" path="res://Textures/TEMP/Table_Scroll.png" id="1_whhun"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
 [ext_resource type="PackedScene" uid="uid://cjlnf28s6hpam" path="res://Prefabs/ingredient_button.tscn" id="3_2rngn"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="3_wv5ja"]
 [ext_resource type="PackedScene" uid="uid://jtysyhn2t6k8" path="res://Prefabs/ingredient_slot.tscn" id="4_nr6wd"]
-[ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
+[ext_resource type="PackedScene" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
 [ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="5_8fcpu"]
+[ext_resource type="Texture2D" uid="uid://bsj714qxsgal1" path="res://Textures/Ingredients/base_hover.png" id="6_3p6dy"]
+[ext_resource type="Texture2D" uid="uid://cntifoprap5da" path="res://Textures/Ingredients/water.png" id="6_woolg"]
+[ext_resource type="Texture2D" uid="uid://bivahhawk0w1o" path="res://Textures/TEMP/Ingredient_Drawer.png" id="7_2xc2b"]
+
+[sub_resource type="Animation" id="Animation_hojro"]
+resource_name = "Drawer_Open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1920, -404), Vector2(1920, 465)]
+}
+
+[sub_resource type="Animation" id="Animation_hr6f0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, -404)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iw137"]
+_data = {
+"Drawer_Open": SubResource("Animation_hojro"),
+"RESET": SubResource("Animation_hr6f0")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5r3g"]
 bg_color = Color(0, 0.811765, 0, 1)
@@ -35,36 +75,640 @@ is_decipher = true
 z_index = 1
 position = Vector2(-540, 1770)
 
-[node name="Ingredient_Sprite2D" parent="." instance=ExtResource("3_2rngn")]
-
 [node name="RecipeHandler_Node2D" type="Node2D" parent="."]
 script = ExtResource("3_wv5ja")
 
-[node name="Base_Button" type="Button" parent="RecipeHandler_Node2D"]
-offset_left = 434.0
+[node name="Drawer_Node2D" type="Node2D" parent="RecipeHandler_Node2D"]
+position = Vector2(1920, -404)
+
+[node name="Drawer_AnimationPlayer" type="AnimationPlayer" parent="RecipeHandler_Node2D/Drawer_Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_iw137")
+}
+
+[node name="Drawer_Sprite2D" type="Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D"]
+texture = ExtResource("7_2xc2b")
+
+[node name="Handle_Button" type="Button" parent="RecipeHandler_Node2D/Drawer_Node2D"]
+offset_left = -215.0
+offset_top = 464.0
+offset_right = 218.0
+offset_bottom = 498.0
+
+[node name="Ingredient-1_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1379, -354)
+_ingredient_index = 1
+
+[node name="Ingredient-2_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1258, -354)
+_ingredient_index = 2
+
+[node name="Ingredient-3_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1137, -354)
+_ingredient_index = 3
+
+[node name="Ingredient-4_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1016, -354)
+_ingredient_index = 4
+
+[node name="Ingredient-5_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-895, -354)
+_ingredient_index = 5
+
+[node name="Ingredient-6_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-774, -354)
+_ingredient_index = 6
+
+[node name="Ingredient-7_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-653, -354)
+_ingredient_index = 7
+
+[node name="Ingredient-8_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-532, -354)
+_ingredient_index = 8
+
+[node name="Ingredient-9_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-411, -354)
+_ingredient_index = 9
+
+[node name="Ingredient-10_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-290, -354)
+_ingredient_index = 10
+
+[node name="Ingredient-11_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-169, -354)
+_ingredient_index = 11
+
+[node name="Ingredient-12_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-48, -354)
+_ingredient_index = 12
+
+[node name="Ingredient-13_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(73, -354)
+_ingredient_index = 13
+
+[node name="Ingredient-14_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(194, -354)
+_ingredient_index = 14
+
+[node name="Ingredient-15_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(315, -354)
+_ingredient_index = 15
+
+[node name="Ingredient-16_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(436, -354)
+_ingredient_index = 16
+
+[node name="Ingredient-17_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(557, -354)
+_ingredient_index = 17
+
+[node name="Ingredient-18_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(678, -354)
+_ingredient_index = 18
+
+[node name="Ingredient-19_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(799, -354)
+_ingredient_index = 19
+
+[node name="Ingredient-20_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(920, -354)
+_ingredient_index = 20
+
+[node name="Ingredient-21_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1041, -354)
+_ingredient_index = 21
+
+[node name="Ingredient-22_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1162, -354)
+_ingredient_index = 22
+
+[node name="Ingredient-23_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1283, -354)
+_ingredient_index = 23
+
+[node name="Ingredient-24_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1404, -354)
+_ingredient_index = 24
+
+[node name="Ingredient-25_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1379, -221)
+_ingredient_index = 25
+
+[node name="Ingredient-26_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1258, -221)
+_ingredient_index = 26
+
+[node name="Ingredient-27_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1137, -221)
+_ingredient_index = 27
+
+[node name="Ingredient-28_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1016, -221)
+_ingredient_index = 28
+
+[node name="Ingredient-29_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-895, -221)
+_ingredient_index = 29
+
+[node name="Ingredient-30_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-774, -221)
+_ingredient_index = 30
+
+[node name="Ingredient-31_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-653, -221)
+_ingredient_index = 31
+
+[node name="Ingredient-32_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-532, -221)
+_ingredient_index = 32
+
+[node name="Ingredient-33_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-411, -221)
+_ingredient_index = 33
+
+[node name="Ingredient-34_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-290, -221)
+_ingredient_index = 34
+
+[node name="Ingredient-35_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-169, -221)
+_ingredient_index = 35
+
+[node name="Ingredient-36_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-48, -221)
+_ingredient_index = 36
+
+[node name="Ingredient-37_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(73, -221)
+_ingredient_index = 37
+
+[node name="Ingredient-38_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(194, -221)
+_ingredient_index = 38
+
+[node name="Ingredient-39_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(315, -221)
+_ingredient_index = 39
+
+[node name="Ingredient-40_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(436, -221)
+_ingredient_index = 40
+
+[node name="Ingredient-41_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(557, -221)
+_ingredient_index = 41
+
+[node name="Ingredient-42_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(678, -221)
+_ingredient_index = 42
+
+[node name="Ingredient-43_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(799, -221)
+_ingredient_index = 43
+
+[node name="Ingredient-44_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(920, -221)
+_ingredient_index = 44
+
+[node name="Ingredient-45_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1041, -221)
+_ingredient_index = 45
+
+[node name="Ingredient-46_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1162, -221)
+_ingredient_index = 46
+
+[node name="Ingredient-47_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1283, -221)
+_ingredient_index = 47
+
+[node name="Ingredient-48_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1404, -221)
+_ingredient_index = 48
+
+[node name="Ingredient-49_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1379, -88)
+_ingredient_index = 49
+
+[node name="Ingredient-50_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1258, -88)
+_ingredient_index = 50
+
+[node name="Ingredient-51_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1137, -88)
+_ingredient_index = 51
+
+[node name="Ingredient-52_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1016, -88)
+_ingredient_index = 52
+
+[node name="Ingredient-53_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-895, -88)
+_ingredient_index = 53
+
+[node name="Ingredient-54_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-774, -88)
+_ingredient_index = 54
+
+[node name="Ingredient-55_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-653, -88)
+_ingredient_index = 55
+
+[node name="Ingredient-56_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-532, -88)
+_ingredient_index = 56
+
+[node name="Ingredient-57_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-411, -88)
+_ingredient_index = 57
+
+[node name="Ingredient-58_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-290, -88)
+_ingredient_index = 58
+
+[node name="Ingredient-59_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-169, -88)
+_ingredient_index = 59
+
+[node name="Ingredient-60_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-48, -88)
+_ingredient_index = 60
+
+[node name="Ingredient-61_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(73, -88)
+_ingredient_index = 61
+
+[node name="Ingredient-62_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(194, -88)
+_ingredient_index = 62
+
+[node name="Ingredient-63_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(315, -88)
+_ingredient_index = 63
+
+[node name="Ingredient-64_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(436, -88)
+_ingredient_index = 64
+
+[node name="Ingredient-65_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(557, -88)
+_ingredient_index = 65
+
+[node name="Ingredient-66_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(678, -88)
+_ingredient_index = 66
+
+[node name="Ingredient-67_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(799, -88)
+_ingredient_index = 67
+
+[node name="Ingredient-68_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(920, -88)
+_ingredient_index = 68
+
+[node name="Ingredient-69_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1041, -88)
+_ingredient_index = 69
+
+[node name="Ingredient-70_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1162, -88)
+_ingredient_index = 70
+
+[node name="Ingredient-71_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1283, -88)
+_ingredient_index = 71
+
+[node name="Ingredient-72_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1404, -88)
+_ingredient_index = 72
+
+[node name="Ingredient-73_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1379, 45)
+_ingredient_index = 73
+
+[node name="Ingredient-74_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1258, 45)
+_ingredient_index = 74
+
+[node name="Ingredient-75_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1137, 45)
+_ingredient_index = 75
+
+[node name="Ingredient-76_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1016, 45)
+_ingredient_index = 76
+
+[node name="Ingredient-77_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-895, 45)
+_ingredient_index = 77
+
+[node name="Ingredient-78_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-774, 45)
+_ingredient_index = 78
+
+[node name="Ingredient-79_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-653, 45)
+_ingredient_index = 79
+
+[node name="Ingredient-80_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-532, 45)
+_ingredient_index = 80
+
+[node name="Ingredient-81_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-411, 45)
+_ingredient_index = 81
+
+[node name="Ingredient-82_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-290, 45)
+_ingredient_index = 82
+
+[node name="Ingredient-83_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-169, 45)
+_ingredient_index = 83
+
+[node name="Ingredient-84_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-48, 45)
+_ingredient_index = 84
+
+[node name="Ingredient-85_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(73, 45)
+_ingredient_index = 85
+
+[node name="Ingredient-86_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(194, 45)
+_ingredient_index = 86
+
+[node name="Ingredient-87_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(315, 45)
+_ingredient_index = 87
+
+[node name="Ingredient-88_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(436, 45)
+_ingredient_index = 88
+
+[node name="Ingredient-89_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(557, 45)
+_ingredient_index = 89
+
+[node name="Ingredient-90_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(678, 45)
+_ingredient_index = 90
+
+[node name="Ingredient-91_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(799, 45)
+_ingredient_index = 91
+
+[node name="Ingredient-92_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(920, 45)
+_ingredient_index = 92
+
+[node name="Ingredient-93_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1041, 45)
+_ingredient_index = 93
+
+[node name="Ingredient-94_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1162, 45)
+_ingredient_index = 94
+
+[node name="Ingredient-95_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1283, 45)
+_ingredient_index = 95
+
+[node name="Ingredient-96_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1404, 45)
+_ingredient_index = 96
+
+[node name="Ingredient-97_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1379, 178)
+_ingredient_index = 97
+
+[node name="Ingredient-98_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1258, 178)
+_ingredient_index = 98
+
+[node name="Ingredient-99_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1137, 178)
+_ingredient_index = 99
+
+[node name="Ingredient-100_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1016, 178)
+_ingredient_index = 100
+
+[node name="Ingredient-101_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-895, 178)
+_ingredient_index = 101
+
+[node name="Ingredient-102_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-774, 178)
+_ingredient_index = 102
+
+[node name="Ingredient-103_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-653, 178)
+_ingredient_index = 103
+
+[node name="Ingredient-104_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-532, 178)
+_ingredient_index = 104
+
+[node name="Ingredient-105_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-411, 178)
+_ingredient_index = 105
+
+[node name="Ingredient-106_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-290, 178)
+_ingredient_index = 106
+
+[node name="Ingredient-107_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-169, 178)
+_ingredient_index = 107
+
+[node name="Ingredient-108_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-48, 178)
+_ingredient_index = 108
+
+[node name="Ingredient-109_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(73, 178)
+_ingredient_index = 109
+
+[node name="Ingredient-110_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(194, 178)
+_ingredient_index = 110
+
+[node name="Ingredient-111_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(315, 178)
+_ingredient_index = 111
+
+[node name="Ingredient-112_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(436, 178)
+_ingredient_index = 112
+
+[node name="Ingredient-113_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(557, 178)
+_ingredient_index = 113
+
+[node name="Ingredient-114_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(678, 178)
+_ingredient_index = 114
+
+[node name="Ingredient-115_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(799, 178)
+_ingredient_index = 115
+
+[node name="Ingredient-116_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(920, 178)
+_ingredient_index = 116
+
+[node name="Ingredient-117_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1041, 178)
+_ingredient_index = 117
+
+[node name="Ingredient-118_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1162, 178)
+_ingredient_index = 118
+
+[node name="Ingredient-119_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1283, 178)
+_ingredient_index = 119
+
+[node name="Ingredient-120_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1404, 178)
+_ingredient_index = 120
+
+[node name="Ingredient-121_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1379, 311)
+_ingredient_index = 121
+
+[node name="Ingredient-122_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1258, 311)
+_ingredient_index = 122
+
+[node name="Ingredient-123_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1137, 311)
+_ingredient_index = 123
+
+[node name="Ingredient-124_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-1016, 311)
+_ingredient_index = 124
+
+[node name="Ingredient-125_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-895, 311)
+_ingredient_index = 125
+
+[node name="Ingredient-126_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-774, 311)
+_ingredient_index = 126
+
+[node name="Ingredient-127_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-653, 311)
+_ingredient_index = 127
+
+[node name="Ingredient-128_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-532, 311)
+_ingredient_index = 128
+
+[node name="Ingredient-129_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-411, 311)
+_ingredient_index = 129
+
+[node name="Ingredient-130_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-290, 311)
+_ingredient_index = 130
+
+[node name="Ingredient-131_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-169, 311)
+_ingredient_index = 131
+
+[node name="Ingredient-132_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(-48, 311)
+_ingredient_index = 132
+
+[node name="Ingredient-133_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(73, 311)
+_ingredient_index = 133
+
+[node name="Ingredient-134_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(194, 311)
+_ingredient_index = 134
+
+[node name="Ingredient-135_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(315, 311)
+_ingredient_index = 135
+
+[node name="Ingredient-136_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(436, 311)
+_ingredient_index = 136
+
+[node name="Ingredient-137_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(557, 311)
+_ingredient_index = 137
+
+[node name="Ingredient-138_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(678, 311)
+_ingredient_index = 138
+
+[node name="Ingredient-139_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(799, 311)
+_ingredient_index = 139
+
+[node name="Ingredient-140_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(920, 311)
+_ingredient_index = 140
+
+[node name="Ingredient-141_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1041, 311)
+_ingredient_index = 141
+
+[node name="Ingredient-142_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1162, 311)
+_ingredient_index = 142
+
+[node name="Ingredient-143_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1283, 311)
+
+[node name="Ingredient-144_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
+position = Vector2(1404, 311)
+_ingredient_index = 144
+
+[node name="RecipeScroll_Node2D" type="Node2D" parent="RecipeHandler_Node2D"]
+
+[node name="Base_Button" type="TextureButton" parent="RecipeHandler_Node2D/RecipeScroll_Node2D"]
+offset_left = 433.0
 offset_top = 1917.0
 offset_right = 651.0
 offset_bottom = 2135.0
+texture_hover = ExtResource("6_3p6dy")
+stretch_mode = 0
 
-[node name="Ingredient-1_Node2D" parent="RecipeHandler_Node2D" instance=ExtResource("4_nr6wd")]
+[node name="Base_Button_1" type="Button" parent="RecipeHandler_Node2D/RecipeScroll_Node2D"]
+visible = false
+offset_left = 433.0
+offset_top = 1917.0
+offset_right = 650.0
+offset_bottom = 2135.0
+icon = ExtResource("6_woolg")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ingredient-1_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
 position = Vector2(784, 1933)
 
-[node name="Ingredient-2_Node2D" parent="RecipeHandler_Node2D" instance=ExtResource("4_nr6wd")]
+[node name="Ingredient-2_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
 position = Vector2(1173, 1932)
 
-[node name="Ingredient-3_Node2D" parent="RecipeHandler_Node2D" instance=ExtResource("4_nr6wd")]
+[node name="Ingredient-3_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
 position = Vector2(1565, 1932)
 
-[node name="Ingredient-4_Node2D" parent="RecipeHandler_Node2D" instance=ExtResource("4_nr6wd")]
+[node name="Ingredient-4_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
 position = Vector2(1955, 1932)
 
-[node name="Ingredient-5_Node2D" parent="RecipeHandler_Node2D" instance=ExtResource("4_nr6wd")]
+[node name="Ingredient-5_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
 position = Vector2(2344, 1931)
 
-[node name="Ingredient-6_Node2D" parent="RecipeHandler_Node2D" instance=ExtResource("4_nr6wd")]
+[node name="Ingredient-6_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D" instance=ExtResource("4_nr6wd")]
 position = Vector2(2734, 1931)
 
-[node name="Submit_Button" type="Button" parent="RecipeHandler_Node2D"]
+[node name="Submit_Button" type="Button" parent="RecipeHandler_Node2D/RecipeScroll_Node2D"]
 offset_left = 3140.0
 offset_top = 1931.0
 offset_right = 3402.0
@@ -115,4 +759,7 @@ text = "Nope, shits wrong try again"
 visible = false
 z_index = 99
 
-[connection signal="pressed" from="RecipeHandler_Node2D/Submit_Button" to="SceneTransition" method="_on_button_pressed"]
+[connection signal="pressed" from="RecipeHandler_Node2D/Drawer_Node2D/Handle_Button" to="RecipeHandler_Node2D" method="_on_handle_button_pressed"]
+[connection signal="pressed" from="RecipeHandler_Node2D/RecipeScroll_Node2D/Base_Button" to="RecipeHandler_Node2D" method="_on_base_button_pressed"]
+[connection signal="pressed" from="RecipeHandler_Node2D/RecipeScroll_Node2D/Base_Button_1" to="RecipeHandler_Node2D" method="_on_base_button_pressed"]
+[connection signal="pressed" from="RecipeHandler_Node2D/RecipeScroll_Node2D/Submit_Button" to="SceneTransition" method="_on_button_pressed"]

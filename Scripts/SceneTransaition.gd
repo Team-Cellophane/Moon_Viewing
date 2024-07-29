@@ -15,6 +15,6 @@ func transition_to_next_scene():
 	# Changes the scene
 	Global.go_to_next_scene()
 
-
+# Submit button
 func _on_button_pressed():
 	transition_to_next_scene()

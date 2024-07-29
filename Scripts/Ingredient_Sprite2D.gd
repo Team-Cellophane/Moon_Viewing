@@ -11,12 +11,11 @@ extends Sprite2D
 var ingredient
 
 func _ready():
-	ingredient = Global.ingredients[_ingredient_index]
+	ingredient = Global.ingredients[_ingredient_index - 1]
 	_ingredient_sprite.texture = load("res://Textures/Ingredients/" + ingredient.name + ".png")
 	_info_ingredient_sprite.texture = _ingredient_sprite.texture
 	_info_text.text = "[center]" + ingredient.measure + " " + ingredient.display_name
-	_info_index.text = "[center]Index: " + str(_ingredient_index + 1)
-	
+	_info_index.text = "[center]Index: " + str(_ingredient_index)
 
 
 func _on_button_mouse_entered():

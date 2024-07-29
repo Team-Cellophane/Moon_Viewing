@@ -93,8 +93,8 @@ func do_close():
 		isOpen = false
 
 
-func set_target_position(position : Vector2):
-	target_position = position
+func set_target_position(new_position : Vector2):
+	target_position = new_position
 
 
 func get_mouse_location_in_bounds():
@@ -153,6 +153,6 @@ func _get_sprite_global_rect(sprite):
 	if sprite.rotation_degrees != 0:
 		var new_size = Vector2(size.y, size.x)
 		size = new_size
-	var position = sprite.global_position - (size / 2)
-	return Rect2(position, size)
+	var sprite_position = sprite.global_position - (size / 2)
+	return Rect2(sprite_position, size)
 

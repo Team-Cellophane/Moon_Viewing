@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brtvk8ypw212w"
-path="res://.godot/imported/suzuki_grass.png-68d4083f847900c4404fe1148e8336a6.ctex"
+uid="uid://hpu2nhkuxsfj"
+path="res://.godot/imported/water_hover.png-7b18d4c7a3181d071a0f1fbde7aa7799.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Ingredients/suzuki_grass.png"
-dest_files=["res://.godot/imported/suzuki_grass.png-68d4083f847900c4404fe1148e8336a6.ctex"]
+source_file="res://Textures/Ingredients/water_hover.png"
+dest_files=["res://.godot/imported/water_hover.png-7b18d4c7a3181d071a0f1fbde7aa7799.ctex"]
 
 [params]
 

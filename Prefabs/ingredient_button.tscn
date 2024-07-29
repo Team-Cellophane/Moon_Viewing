@@ -12,7 +12,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0.666667)
 
 [node name="Ingredient_Sprite2D" type="Sprite2D"]
 z_index = 98
-position = Vector2(2250, 1468)
 texture = ExtResource("1_bxtc0")
 script = ExtResource("2_kgyto")
 _ingredient_index = 143
@@ -26,17 +25,19 @@ offset_right = 48.0
 offset_bottom = 48.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r2sij")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vl4i")
+icon_alignment = 1
 
 [node name="Node2D" type="Node2D" parent="Sprite2D"]
 visible = false
+z_index = 99
 
 [node name="Background" type="Sprite2D" parent="Sprite2D/Node2D"]
-position = Vector2(0, -200)
+position = Vector2(0, 183)
 scale = Vector2(0.6, 0.15)
 texture = ExtResource("3_6jgia")
 
 [node name="Card" type="Sprite2D" parent="Sprite2D/Node2D"]
-position = Vector2(-270, -202)
+position = Vector2(-270, 175)
 scale = Vector2(2, 2)
 texture = ExtResource("1_bxtc0")
 
@@ -45,9 +46,9 @@ texture = ExtResource("4_qhupx")
 
 [node name="Name" type="RichTextLabel" parent="Sprite2D/Node2D"]
 offset_left = -154.0
-offset_top = -242.0
+offset_top = 135.0
 offset_right = 370.0
-offset_bottom = -106.0
+offset_bottom = 271.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
@@ -58,9 +59,9 @@ shortcut_keys_enabled = false
 
 [node name="Index" type="RichTextLabel" parent="Sprite2D/Node2D"]
 offset_left = -153.0
-offset_top = -308.0
+offset_top = 69.0
 offset_right = 371.0
-offset_bottom = -239.0
+offset_bottom = 138.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
