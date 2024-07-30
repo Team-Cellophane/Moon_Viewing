@@ -62,14 +62,6 @@ func _on_ingredient_selected(ingredient_index, ingredient_texture):
 	selected_slot.set_ingredient(ingredient_index, ingredient_texture)
 
 
-func _on_remove_button_mouse_entered():
-	_remove_button_info.visible = true
-
-
-func _on_remove_button_mouse_exited():
-	_remove_button_info.visible = false
-
-
 func _on_remove_button_pressed():
 	if selected_slot == null:
 		return

@@ -45,7 +45,7 @@ func set_ingredient(index, new_texture):
 		_label.visible = true
 		_quantity.visible = true
 	
-	if next_slot != null:
+	if next_slot != null and index > 0:
 		next_slot.visible = true
 
 
