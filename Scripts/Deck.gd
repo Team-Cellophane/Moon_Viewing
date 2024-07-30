@@ -13,14 +13,14 @@ var _selected_card = 0
 func _ready():
 	reset_deck()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	z_index = Global.get_z_index("card") + 49
 	if (_moused_over and _is_top_most_sprite()):
 		_display.visible = true
 	else:
 		_display.visible = false
 
-func _on_area_2d_input_event(viewport, event, shape_idx):
+func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if !(event is InputEventMouseButton and event.pressed and _is_top_most_sprite()):
 		return
 	if  event.button_index == MOUSE_BUTTON_LEFT:
@@ -98,5 +98,5 @@ func _get_sprite_global_rect(sprite):
 	if sprite.rotation_degrees != 0:
 		var new_size = Vector2(size.y, size.x)
 		size = new_size
-	var position = sprite.global_position - (size / 2)
-	return Rect2(position, size)
+	var sprite_position = sprite.global_position - (size / 2)
+	return Rect2(sprite_position, size)

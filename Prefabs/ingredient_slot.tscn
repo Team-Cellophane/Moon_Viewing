@@ -58,6 +58,7 @@ min_value = 1.0
 max_value = 999.0
 value = 1.0
 alignment = 3
+update_on_text_changed = true
 
 [node name="X_TextLabel" type="RichTextLabel" parent="."]
 visible = false

@@ -28,6 +28,10 @@ func _on_button_mouse_exited():
 	_info.visible = false
 
 
+func get_next_slot():
+	return next_slot
+
+
 func set_focus():
 	_button.grab_focus()
 

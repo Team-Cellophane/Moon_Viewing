@@ -3,7 +3,6 @@ extends Node2D
 @onready var _base_button = $RecipeScroll_Node2D/Scroll_Sprite2D/Base_Button
 @onready var _recipe_scroll = $RecipeScroll_Node2D/Scroll_Sprite2D
 @onready var _animation_player = $Drawer_Node2D/Drawer_AnimationPlayer
-@onready var _remove_button_info = $Drawer_Node2D/Remove_Button/Info_Node2D
 
 var drawer_open = false
 var potion_base_oil = true
@@ -58,6 +57,8 @@ func _on_ingredient_selected(ingredient_index, ingredient_texture):
 	if selected_slot == null:
 		return
 	selected_slot.set_ingredient(ingredient_index, ingredient_texture)
+	if selected_slot.get_next_slot() != null:
+		selected_slot = selected_slot.get_next_slot()
 	selected_slot.set_focus()
 
 
