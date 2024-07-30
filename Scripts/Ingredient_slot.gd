@@ -2,27 +2,55 @@ extends Node2D
 
 signal slot_selected
 
+@export var next_slot: Node2D
+
 @onready var _ingredient = $Ingredient_Sprite2D
-@onready var _label = $RichTextLabel
-@onready var _quantity = $Recipe_Entry
+@onready var _label = $X_TextLabel
+@onready var _quantity = $Quantity_SpinBox
+@onready var _info = $Node2D
+@onready var _info_ingredient_sprite = $Node2D/Card/Ingredient
+@onready var _info_index = $Node2D/Index
+@onready var _info_text = $Node2D/Name
 
 var ingredient_index = -1
 
-func _on_ingredient_slot_button_pressed():
-	slot_selected.emit(self)
+func _on_ingredient_slot_button_pressed(event):
+	slot_selected.emit(self, event)
 	
 
-func set_ingredient_texture(new_texture):
-	_ingredient.texture = new_texture
+func _on_button_mouse_entered():
+	if ingredient_index > 0:
+		_info.visible = true
 
-func set_ingredient_index(index):
+
+func _on_button_mouse_exited():
+	_info.visible = false
+
+
+func set_ingredient(index, new_texture):
+	var ingredient = Global.ingredients[index - 1]
+	
 	ingredient_index = index
+	
+	_ingredient.texture = new_texture
+	_info_ingredient_sprite.texture = new_texture
+	
+	_info_text.text = "[center]" 
+	if Global.get_current_scene_number() > 7:
+		_info_text.text += ingredient.measure + " " 
+	_info_text.text += ingredient.display_name
+	_info_index.text = "[center]Index: " + str(index)
+	
 	if Global.get_current_scene_number() > 7:
 		_label.visible = true
 		_quantity.visible = true
+	
+	if next_slot != null:
+		next_slot.visible = true
 
 
 func get_ingredient_definition():
 	if ingredient_index == -1:
 		return null
-	return str(ingredient_index) + _quantity.text
+	var quantity = _quantity.value
+	return str(ingredient_index, "x", quantity)

@@ -16,7 +16,10 @@ func _ready():
 	ingredient = Global.ingredients[_ingredient_index - 1]
 	_ingredient_sprite.texture = load("res://Textures/Ingredients/" + ingredient.name + ".png")
 	_info_ingredient_sprite.texture = _ingredient_sprite.texture
-	_info_text.text = "[center]" + ingredient.measure + " " + ingredient.display_name
+	_info_text.text = "[center]" 
+	if Global.get_current_scene_number() > 7:
+		_info_text.text += ingredient.measure + " " 
+	_info_text.text += ingredient.display_name
 	_info_index.text = "[center]Index: " + str(_ingredient_index)
 
 

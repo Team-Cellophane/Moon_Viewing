@@ -3,6 +3,7 @@ extends Node2D
 @onready var _base_button = $RecipeScroll_Node2D/Scroll_Sprite2D/Base_Button
 @onready var _recipe_scroll = $RecipeScroll_Node2D/Scroll_Sprite2D
 @onready var _animation_player = $Drawer_Node2D/Drawer_AnimationPlayer
+@onready var _remove_button_info = $Drawer_Node2D/Remove_Button/Info_Node2D
 
 var drawer_open = false
 var potion_base_oil = true
@@ -41,15 +42,36 @@ func _on_base_button_pressed():
 	potion_base_oil = !potion_base_oil
 
 
-func _on_ingredient_slot_selected(selected_node):
-	selected_slot = selected_node
-	if !drawer_open:
-		_animation_player.play("Drawer_Open")
-		drawer_open = true
+func _on_ingredient_slot_selected(selected_node, event):
+	if event is InputEventMouseButton and event.pressed:
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				selected_slot = selected_node
+				if !drawer_open:
+					_animation_player.play("Drawer_Open")
+					drawer_open = true
+			MOUSE_BUTTON_RIGHT:
+				selected_node.set_ingredient(-1, null)
+				selected_node._on_button_mouse_exited()
+				selected_slot = null
 
 
 func _on_ingredient_selected(ingredient_index, ingredient_texture):
 	if selected_slot == null:
 		return
-	selected_slot.set_ingredient_texture(ingredient_texture)
-	selected_slot.set_ingredient_index(ingredient_index)
+	selected_slot.set_ingredient(ingredient_index, ingredient_texture)
+
+
+func _on_remove_button_mouse_entered():
+	_remove_button_info.visible = true
+
+
+func _on_remove_button_mouse_exited():
+	_remove_button_info.visible = false
+
+
+func _on_remove_button_pressed():
+	if selected_slot == null:
+		return
+	selected_slot.set_ingredient(-1, null)
+	selected_slot = null

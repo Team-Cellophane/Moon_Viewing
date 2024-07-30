@@ -5,7 +5,6 @@ extends Node2D
 @onready var _title_viewing = $Node/TitleViewing
 @onready var _title_animation_player = $Node/TitleAnimationPlayer
 @onready var _play_button = $PlayButton
-@onready var _background = $Background
 @onready var _background_animation_player = $Background/BackgroundAnimationPlayer
 @onready var _letter = $PlaintextLetter
 
