@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d274ilvexmxm"
-path="res://.godot/imported/oil.png-25afd8fe9c6843ecb3d70d739c1745b9.ctex"
+uid="uid://jjr2akedn747"
+path="res://.godot/imported/X.png-7159d0cbed1c0d2eb29dd539f8f07fa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Ingredients/oil.png"
-dest_files=["res://.godot/imported/oil.png-25afd8fe9c6843ecb3d70d739c1745b9.ctex"]
+source_file="res://Textures/TEMP/X.png"
+dest_files=["res://.godot/imported/X.png-7159d0cbed1c0d2eb29dd539f8f07fa4.ctex"]
 
 [params]
 

@@ -1,8 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://bc0vn45w55w5y"]
+[gd_scene load_steps=21 format=3 uid="uid://bc0vn45w55w5y"]
 
 [ext_resource type="Texture2D" uid="uid://bpxfnwksrqlo2" path="res://Textures/TEMP/Paper.png" id="1_kw7od"]
 [ext_resource type="Script" path="res://Scripts/Draggable.gd" id="2_leodq"]
-[ext_resource type="Texture2D" uid="uid://ckmv73j1xtjqf" path="res://Textures/TEMP/Minimize.png" id="3_r23oh"]
+[ext_resource type="Texture2D" uid="uid://jjr2akedn747" path="res://Textures/TEMP/X.png" id="3_xgvnu"]
+[ext_resource type="Texture2D" uid="uid://dcbldhf4f6s5u" path="res://Textures/TEMP/Arrow.png" id="4_gdnkx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1836w"]
+texture = ExtResource("3_xgvnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3w84"]
+texture = ExtResource("3_xgvnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_faggl"]
+texture = ExtResource("3_xgvnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tctbv"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h5as6"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fe62d"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmssx"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0uv4t"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3e5x"]
+texture = ExtResource("4_gdnkx")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnx6v"]
 size = Vector2(1326, 1716.46)
@@ -137,32 +165,42 @@ texture = ExtResource("1_kw7od")
 script = ExtResource("2_leodq")
 
 [node name="Min_Button" type="Button" parent="."]
-offset_left = -613.0
-offset_top = -835.443
-offset_right = -455.0
-offset_bottom = -777.443
+offset_left = -727.0
+offset_top = -922.0
+offset_right = -631.0
+offset_bottom = -826.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_1836w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m3w84")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_faggl")
 action_mode = 0
-icon = ExtResource("3_r23oh")
+icon = ExtResource("3_xgvnu")
 flat = true
 
 [node name="Prev_Button" type="Button" parent="."]
-offset_left = -158.0
-offset_top = 777.215
-offset_bottom = 835.215
+offset_left = -631.0
+offset_top = 48.0
+offset_right = -535.0
+offset_bottom = 144.0
+rotation = 3.14159
+theme_override_styles/normal = SubResource("StyleBoxTexture_tctbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h5as6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fe62d")
 action_mode = 0
-icon = ExtResource("3_r23oh")
+icon = ExtResource("4_gdnkx")
 flat = true
 
 [node name="Next_Button" type="Button" parent="."]
-offset_left = 158.0
-offset_top = 835.443
-offset_right = 316.0
-offset_bottom = 893.443
-scale = Vector2(-1, -1)
+offset_left = 631.0
+offset_top = -48.0
+offset_right = 727.0
+offset_bottom = 48.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_xmssx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0uv4t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i3e5x")
 action_mode = 0
-icon = ExtResource("3_r23oh")
+icon = ExtResource("4_gdnkx")
 flat = true
 
 [node name="Area2D" type="Area2D" parent="."]

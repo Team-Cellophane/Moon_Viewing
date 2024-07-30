@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d274ilvexmxm"
-path="res://.godot/imported/oil.png-25afd8fe9c6843ecb3d70d739c1745b9.ctex"
+uid="uid://b5uqh4uw31b6"
+path="res://.godot/imported/Vignette.png-3e760337b813be0470bd2890c3d257ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Ingredients/oil.png"
-dest_files=["res://.godot/imported/oil.png-25afd8fe9c6843ecb3d70d739c1745b9.ctex"]
+source_file="res://Textures/TEMP/Vignette.png"
+dest_files=["res://.godot/imported/Vignette.png-3e760337b813be0470bd2890c3d257ec.ctex"]
 
 [params]
 
