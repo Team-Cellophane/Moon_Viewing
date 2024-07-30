@@ -44,26 +44,25 @@ func _on_base_button_pressed():
 
 func _on_ingredient_slot_selected(selected_node, event):
 	if event is InputEventMouseButton and event.pressed:
+		selected_slot = selected_node
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
-				selected_slot = selected_node
 				if !drawer_open:
 					_animation_player.play("Drawer_Open")
 					drawer_open = true
 			MOUSE_BUTTON_RIGHT:
-				selected_node.set_ingredient(-1, null)
-				selected_node._on_button_mouse_exited()
-				selected_slot = null
+				_on_remove_button_pressed()
 
 
 func _on_ingredient_selected(ingredient_index, ingredient_texture):
 	if selected_slot == null:
 		return
 	selected_slot.set_ingredient(ingredient_index, ingredient_texture)
+	selected_slot.set_focus()
 
 
 func _on_remove_button_pressed():
 	if selected_slot == null:
 		return
-	selected_slot.set_ingredient(-1, null)
-	selected_slot = null
+	selected_slot.remove_ingredient()
+	selected_slot.set_focus()

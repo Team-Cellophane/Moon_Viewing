@@ -7,6 +7,7 @@ signal slot_selected
 @onready var _ingredient = $Ingredient_Sprite2D
 @onready var _label = $X_TextLabel
 @onready var _quantity = $Quantity_SpinBox
+@onready var _button = $Ingredient_Sprite2D/Ingredient_Button
 @onready var _info = $Node2D
 @onready var _info_ingredient_sprite = $Node2D/Card/Ingredient
 @onready var _info_index = $Node2D/Index
@@ -27,6 +28,10 @@ func _on_button_mouse_exited():
 	_info.visible = false
 
 
+func set_focus():
+	_button.grab_focus()
+
+
 func set_ingredient(index, new_texture):
 	var ingredient = Global.ingredients[index - 1]
 	
@@ -45,8 +50,20 @@ func set_ingredient(index, new_texture):
 		_label.visible = true
 		_quantity.visible = true
 	
-	if next_slot != null and index > 0:
-		next_slot.visible = true
+	if next_slot != null:
+		next_slot.visible = index > 0
+
+
+func remove_ingredient():
+	_on_button_mouse_exited()
+	var current_index = ingredient_index
+	var current_texture = _ingredient.texture
+	var next_node_ingredient = [-1, null]
+	if next_slot != null:
+		next_node_ingredient = next_slot.remove_ingredient()
+		
+	set_ingredient(next_node_ingredient[0], next_node_ingredient[1])
+	return [current_index, current_texture]
 
 
 func get_ingredient_definition():
