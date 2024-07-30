@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wlf47v5opds2" path="res://Textures/Background and Menu/WindowScene1080p.png" id="1_wb45a"]
 [ext_resource type="Shader" path="res://Textures/Shaders/blur.gdshader" id="2_0pdv8"]
 [ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_0inqc"]
-[ext_resource type="FontFile" path="res://Textures/Fonts/QT Caligulatype.ttf" id="4_64kbp"]
+[ext_resource type="FontFile" uid="uid://7kktliyaaq7s" path="res://Textures/Fonts/QT Caligulatype.ttf" id="4_64kbp"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="6_64hv1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mfoq"]

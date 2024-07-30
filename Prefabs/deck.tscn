@@ -21,7 +21,6 @@ position = Vector2(0.000488281, 0)
 shape = SubResource("RectangleShape2D_l4tq6")
 
 [node name="Display" type="Node2D" parent="."]
-visible = false
 z_index = 902
 
 [node name="Background" type="Sprite2D" parent="Display"]
@@ -35,17 +34,19 @@ scale = Vector2(1, 1)
 card = "1b"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Display"]
-offset_left = -1794.0
-offset_top = -1060.0
-offset_right = -1249.0
-offset_bottom = -855.0
+offset_left = -1883.0
+offset_top = -1263.0
+offset_right = -1230.0
+offset_bottom = -929.0
 scale = Vector2(2.857, 2.857)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "[center]Click to draw card
+text = "[center]
+Click to draw card
 Scroll to select card
 Right click to reset"
+scroll_active = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Display"]
 offset_left = -171.0
