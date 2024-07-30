@@ -50,6 +50,6 @@ func _on_ingredient_slot_selected(selected_node):
 
 func _on_ingredient_selected(ingredient_index, ingredient_texture):
 	if selected_slot == null:
-		pass
+		return
 	selected_slot.set_ingredient_texture(ingredient_texture)
 	selected_slot.set_ingredient_index(ingredient_index)
