@@ -67,6 +67,7 @@ func _deferred_go_to_current_scene():
 	current_scene = s.instantiate()
 	
 	get_tree().root.add_child(current_scene)
+	print(scene_number)
 
 func get_current_scene_number():
 	return scene_number

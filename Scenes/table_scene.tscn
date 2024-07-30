@@ -1,10 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://ca5wfb2dckrpx"]
+[gd_scene load_steps=24 format=3 uid="uid://ca5wfb2dckrpx"]
 
 [ext_resource type="Texture2D" uid="uid://cp5p66yv2fdl5" path="res://Textures/TEMP/Table.png" id="1_j2n3u"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
 [ext_resource type="PackedScene" uid="uid://cjlnf28s6hpam" path="res://Prefabs/ingredient_button.tscn" id="3_2rngn"]
 [ext_resource type="PackedScene" uid="uid://e3jaxipka857" path="res://Prefabs/deck.tscn" id="3_km6p8"]
-[ext_resource type="Texture2D" uid="uid://0psj7pl7dwui" path="res://Textures/Background and Menu/square_card.png" id="3_sguyc"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="3_wv5ja"]
 [ext_resource type="PackedScene" uid="uid://jtysyhn2t6k8" path="res://Prefabs/ingredient_slot.tscn" id="4_nr6wd"]
 [ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
@@ -709,36 +708,6 @@ z_index = 300
 z_index = 50
 position = Vector2(1919, 2025)
 texture = ExtResource("6_oeaio")
-
-[node name="CardBg1" type="Sprite2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
-position = Vector2(-1039, 4)
-scale = Vector2(2, 2)
-texture = ExtResource("3_sguyc")
-
-[node name="CardBg2" type="Sprite2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
-position = Vector2(-650, 4)
-scale = Vector2(2, 2)
-texture = ExtResource("3_sguyc")
-
-[node name="CardBg3" type="Sprite2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
-position = Vector2(-258, 4)
-scale = Vector2(2, 2)
-texture = ExtResource("3_sguyc")
-
-[node name="CardBg4" type="Sprite2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
-position = Vector2(132, 4)
-scale = Vector2(2, 2)
-texture = ExtResource("3_sguyc")
-
-[node name="CardBg5" type="Sprite2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
-position = Vector2(520, 4)
-scale = Vector2(2, 2)
-texture = ExtResource("3_sguyc")
-
-[node name="CardBg6" type="Sprite2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
-position = Vector2(910, 4)
-scale = Vector2(2, 2)
-texture = ExtResource("3_sguyc")
 
 [node name="Base_Button" type="TextureButton" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
 offset_left = -1486.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://jtysyhn2t6k8"]
+[gd_scene load_steps=5 format=3 uid="uid://jtysyhn2t6k8"]
 
 [ext_resource type="Script" path="res://Scripts/Ingredient_slot.gd" id="1_2ubwl"]
+[ext_resource type="Texture2D" uid="uid://0psj7pl7dwui" path="res://Textures/Background and Menu/square_card.png" id="2_gift3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkh04"]
 
@@ -10,9 +11,14 @@ bg_color = Color(0.6, 0.6, 0.6, 0.666667)
 [node name="Ingredient_Node2D" type="Node2D"]
 script = ExtResource("1_2ubwl")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(96, 96)
+scale = Vector2(2, 2)
+texture = ExtResource("2_gift3")
+
 [node name="Ingredient_Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7, 7)
-scale = Vector2(2.25, 2.2365)
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
 centered = false
 
 [node name="Ingredient_Button" type="Button" parent="Ingredient_Sprite2D"]

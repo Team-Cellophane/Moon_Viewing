@@ -1,6 +1,7 @@
 extends ColorRect
 
 @onready var _animation_player = $AnimationPlayer
+var button_clicked = false
 
 signal submit_recipe
 
@@ -11,6 +12,9 @@ func _ready():
 		_animation_player.play("2Fade_In")
 	
 func transition_to_next_scene():
+	if button_clicked:
+		return
+	button_clicked = true
 	# Plays the Fade animation and wait until it finishes
 	_animation_player.play("1Fade_Out")
 	if Global.get_current_recipe() != "":
