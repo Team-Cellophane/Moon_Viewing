@@ -765,7 +765,7 @@ texture_hover = ExtResource("6_3p6dy")
 stretch_mode = 0
 
 [node name="Ingredient-1_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" node_paths=PackedStringArray("next_slot") instance=ExtResource("4_nr6wd")]
-position = Vector2(-1238, -92)
+position = Vector2(-1235, -92)
 next_slot = NodePath("../Ingredient-2_Node2D")
 
 [node name="Ingredient-2_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" node_paths=PackedStringArray("next_slot") instance=ExtResource("4_nr6wd")]

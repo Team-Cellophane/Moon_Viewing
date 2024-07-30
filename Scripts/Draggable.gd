@@ -26,7 +26,7 @@ var border_offset = 70
 func _ready():
 	_min_button.visible = min_button_enabled
 	home_position = position
-	load_page_content_sprite()
+	load_page_content_sprite(true)
 	
 
 
@@ -59,21 +59,17 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 
 func _on_min_button_pressed():
 	returningHome = true
-	isOpen = false
-	if landscape:
-		_animation_player.play("Page_Shrink_Landscape")
-	else:
-		_animation_player.play("Page_Shrink")
+	do_close()
 
 
 func _on_prev_button_pressed():
 	current_page -= 1
-	load_page_content_sprite()
+	load_page_content_sprite(false)
 
 
 func _on_next_button_pressed():
 	current_page += 1
-	load_page_content_sprite()
+	load_page_content_sprite(false)
 
 
 func do_open():
@@ -82,6 +78,8 @@ func do_open():
 			_animation_player.play("Page_Expand_Landscape")
 		else:
 			_animation_player.play("Page_Expand")
+		_prev_button.visible = ResourceLoader.exists(build_resource_path(current_page - 1))
+		_next_button.visible = ResourceLoader.exists(build_resource_path(current_page + 1))
 		isOpen = true
 
 
@@ -91,6 +89,8 @@ func do_close():
 			_animation_player.play("Page_Shrink_Landscape")
 		else:
 			_animation_player.play("Page_Shrink")
+		_prev_button.visible = false
+		_next_button.visible = false
 		isOpen = false
 
 
@@ -103,12 +103,13 @@ func get_mouse_location_in_bounds():
 				 Vector2(3840 - border_offset, 2160 - border_offset)) + click_offset
 
 
-func load_page_content_sprite():
+func load_page_content_sprite(from_ready):
 	var resource_path = build_resource_path(current_page)
 	if ResourceLoader.exists(resource_path):
 		_content_sprite2d.texture = load(resource_path)
-		_prev_button.visible = ResourceLoader.exists(build_resource_path(current_page - 1))
-		_next_button.visible = ResourceLoader.exists(build_resource_path(current_page + 1))
+		if !from_ready:
+			_prev_button.visible = ResourceLoader.exists(build_resource_path(current_page - 1))
+			_next_button.visible = ResourceLoader.exists(build_resource_path(current_page + 1))
 		
 	if (is_letter and landscape and current_page == 0):
 		_salutation_sprite2d.visible = true
