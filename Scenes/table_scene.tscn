@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://e3jaxipka857" path="res://Prefabs/deck.tscn" id="3_km6p8"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="3_wv5ja"]
 [ext_resource type="PackedScene" uid="uid://jtysyhn2t6k8" path="res://Prefabs/ingredient_slot.tscn" id="4_nr6wd"]
-[ext_resource type="PackedScene" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
+[ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_v47ms"]
 [ext_resource type="Texture2D" uid="uid://bsj714qxsgal1" path="res://Textures/Ingredients/base_hover.png" id="6_3p6dy"]
 [ext_resource type="Texture2D" uid="uid://dn0vmojkw8gul" path="res://Textures/TEMP/Recipe_Scroll.png" id="6_oeaio"]
 [ext_resource type="Texture2D" uid="uid://djiafk8x5wh02" path="res://Textures/TEMP/X_Red.png" id="6_pl4oy"]

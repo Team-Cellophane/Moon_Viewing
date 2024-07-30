@@ -134,7 +134,7 @@ func set_scenes():
 						SceneInfo.new("res://Scenes/main.tscn","","",""),
 						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-12","Decipher/decipher-3","o,60x45,33x40,22x30"),
 						SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-4","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-13","Decipher/decipher-3","w,81x900"),#TODO create decipher 4
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-13","Decipher/decipher-4","w,81x900"),
 						SceneInfo.new("res://Scenes/main.tscn","","","")
 					]
 
