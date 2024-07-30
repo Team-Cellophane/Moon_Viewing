@@ -47,8 +47,8 @@ func set_ingredient(index, new_texture):
 	_info_index.text = "[center]Index: " + str(index)
 	
 	if Global.get_current_scene_number() > 7:
-		_label.visible = true
-		_quantity.visible = true
+		_label.visible = index > 0
+		_quantity.visible = index > 0
 	
 	if next_slot != null:
 		next_slot.visible = index > 0
@@ -58,12 +58,14 @@ func remove_ingredient():
 	_on_button_mouse_exited()
 	var current_index = ingredient_index
 	var current_texture = _ingredient.texture
-	var next_node_ingredient = [-1, null]
+	var current_quantity = _quantity.value
+	var next_node_ingredient = [-1, null, 1]
 	if next_slot != null:
 		next_node_ingredient = next_slot.remove_ingredient()
 		
 	set_ingredient(next_node_ingredient[0], next_node_ingredient[1])
-	return [current_index, current_texture]
+	_quantity.value = next_node_ingredient[2]
+	return [current_index, current_texture, current_quantity]
 
 
 func get_ingredient_definition():
