@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqdtuu446wwcv"]
+[gd_scene load_steps=19 format=3 uid="uid://cqdtuu446wwcv"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_6eort"]
 [ext_resource type="Texture2D" uid="uid://wlf47v5opds2" path="res://Textures/Background and Menu/WindowScene1080p.png" id="1_wb45a"]
 [ext_resource type="Shader" path="res://Textures/Shaders/blur.gdshader" id="2_0pdv8"]
-[ext_resource type="Texture2D" uid="uid://c5lyxdsy3lwa0" path="res://Textures/Background and Menu/title-0.png" id="2_s6njg"]
-[ext_resource type="Texture2D" uid="uid://c5fp8tfmsnedo" path="res://Textures/Background and Menu/title-1.png" id="3_pj3fy"]
 [ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_0inqc"]
+[ext_resource type="FontFile" path="res://Textures/Fonts/QT Caligulatype.ttf" id="4_64kbp"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="6_64hv1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mfoq"]
@@ -72,22 +71,10 @@ length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TitleViewing:modulate")
+tracks/0/path = NodePath("Title:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(3.5, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TitleMoon:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(3.5, 8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -100,22 +87,10 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TitleViewing:modulate")
+tracks/0/path = NodePath("Title:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TitleMoon:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -127,22 +102,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TitleViewing:modulate")
+tracks/0/path = NodePath("Title:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TitleMoon:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -154,6 +117,151 @@ _data = {
 "Fade_In": SubResource("Animation_87wgi"),
 "Fade_Out": SubResource("Animation_lw0ej"),
 "RESET": SubResource("Animation_g25p4")
+}
+
+[sub_resource type="Animation" id="Animation_37bvw"]
+resource_name = "Credits"
+length = 79.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits Top:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 67, 69, 71, 77, 79),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits Bottom:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 77, 79),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits Top:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7, 13, 19, 25, 31, 69),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "[center]Mark West
+(Advance)", "[center]Ben Marquez
+(DeveloperChipmunk)", "[center]Matt West 
+(Cache)", "[center]Issac Conway 
+(Carl_Wheezer)", "[center]Special Thanks", "[center]THANK YOU"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits Bottom:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7, 13, 19, 25, 33, 39, 45, 51, 57, 63, 71, 79),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["[center]by
+Team Cellophane", "[center]Designer
+Developer
+Artist
+Writer
+Sound", "[center]
+Developer
+Designer
+QA", "[center]
+Writer
+Designer
+QA", "[center]
+
+Artist", "[center]
+Louiemantia
+For their lovely hanafuda art
+(Attribution in COPYRIGHT.txt)", "[center]
+QualiType
+For their wonderful font
+(Attribution in COPYRIGHT.txt)", "[center]
+Nintendo 
+For introducing Mark to hanafuda with 
+\"Clubhouse Games: 51 Worldwide Classics\"", "[center]IndianWolf Studios 
+(Jason Johnson & 
+Antonietta Fazio-Johnson) 
+For solidifying Mark's love for hanafuda 
+with \"Hanafuda Games\"", "[center]
+Jason Thor Hall (PirateSoftware)
+For hosting this game jam", "[center]
+But most importantly...", "[center]
+For playing this silly little game", "[center]by
+Team Cellophane"]
+}
+
+[sub_resource type="Animation" id="Animation_2uhf7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits Top:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits Bottom:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits Top:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]Team  Cellophane"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits Bottom:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]Moon   Viewing"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6jw6j"]
+_data = {
+"Credits": SubResource("Animation_37bvw"),
+"RESET": SubResource("Animation_2uhf7")
 }
 
 [node name="Main" type="Node2D"]
@@ -174,21 +282,49 @@ libraries = {
 
 [node name="Node" type="Node" parent="."]
 
-[node name="TitleMoon" type="Sprite2D" parent="Node"]
+[node name="Title" type="RichTextLabel" parent="Node"]
 modulate = Color(1, 1, 1, 0)
-z_index = -1
-position = Vector2(1852, 1200)
-texture = ExtResource("2_s6njg")
-
-[node name="TitleViewing" type="Sprite2D" parent="Node"]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-position = Vector2(2072, 1200)
-texture = ExtResource("3_pj3fy")
+offset_left = 764.0
+offset_top = 511.0
+offset_right = 3236.0
+offset_bottom = 1037.0
+theme_override_fonts/normal_font = ExtResource("4_64kbp")
+theme_override_font_sizes/normal_font_size = 268
+bbcode_enabled = true
+text = "[center]Moon   Viewing"
 
 [node name="TitleAnimationPlayer" type="AnimationPlayer" parent="Node"]
 libraries = {
 "": SubResource("AnimationLibrary_cxeqk")
+}
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Credits Top" type="RichTextLabel" parent="Node2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 684.0
+offset_top = 516.0
+offset_right = 3156.0
+offset_bottom = 1357.0
+theme_override_fonts/normal_font = ExtResource("4_64kbp")
+theme_override_font_sizes/normal_font_size = 268
+bbcode_enabled = true
+text = "[center]Team  Cellophane"
+
+[node name="Credits Bottom" type="RichTextLabel" parent="Node2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 684.0
+offset_top = 1405.0
+offset_right = 3156.0
+offset_bottom = 2113.0
+theme_override_fonts/normal_font = ExtResource("4_64kbp")
+theme_override_font_sizes/normal_font_size = 130
+bbcode_enabled = true
+text = "[center]Moon   Viewing"
+
+[node name="CreditsAnimationPlayer" type="AnimationPlayer" parent="Node2"]
+libraries = {
+"": SubResource("AnimationLibrary_6jw6j")
 }
 
 [node name="ContinueButton" type="Button" parent="."]

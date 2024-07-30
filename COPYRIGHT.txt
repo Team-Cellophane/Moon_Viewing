@@ -16,7 +16,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 
 This work, "Moon Viewing", adapts and modifies all images included in "SVG Hanafuda (black border)"[https://commons.wikimedia.org/wiki/Category:SVG_Hanafuda_(black_border)], all of which were created by Louiemantia[https://commons.wikimedia.org/wiki/User:Louiemantia], all images used under CC BY-SA 4.0[https://creativecommons.org/licenses/by-sa/4.0/deed.en]. "Moon Viewing" is licensed under GNU GPLv3[https://www.gnu.org/licenses/gpl-3.0.html] which is considered a compatible license with CC BY-SA 4.0[https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses/].
 
-This work, "Moon Viewing", adapts "QTCaligulatype" from the "QualiType font collection"[https://commons.wikimedia.org/wiki/Category:SVG_Hanafuda_(black_border)], by QualiType, used under GNU GPLv3[https://www.gnu.org/licenses/gpl-3.0.html]. "Moon Viewing" is licensed under GNU GPLv3[https://www.gnu.org/licenses/gpl-3.0.html].
+This work, "Moon Viewing", includes "QTCaligulatype" from the "QualiType font collection"[https://www.ctan.org/tex-archive/fonts/qualitype/], by QualiType, used under GNU GPLv3[https://www.gnu.org/licenses/gpl-3.0.html]. "Moon Viewing" is licensed under GNU GPLv3[https://www.gnu.org/licenses/gpl-3.0.html].
 
 
 
