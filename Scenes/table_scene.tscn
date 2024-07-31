@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ca5wfb2dckrpx"]
+[gd_scene load_steps=35 format=3 uid="uid://ca5wfb2dckrpx"]
 
 [ext_resource type="Texture2D" uid="uid://cp5p66yv2fdl5" path="res://Textures/TEMP/Table.png" id="1_j2n3u"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="2_ldjf2"]
@@ -10,8 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://bsj714qxsgal1" path="res://Textures/Ingredients/base_hover.png" id="6_3p6dy"]
 [ext_resource type="Texture2D" uid="uid://cq0buggyuvftl" path="res://Textures/TEMP/Remove.png" id="6_mcv8h"]
 [ext_resource type="Texture2D" uid="uid://dn0vmojkw8gul" path="res://Textures/TEMP/Recipe_Scroll.png" id="6_oeaio"]
+[ext_resource type="AudioStream" uid="uid://dymj2iplo44gx" path="res://Audio/SFX/draweropen.wav" id="6_th2ym"]
 [ext_resource type="Texture2D" uid="uid://bivahhawk0w1o" path="res://Textures/TEMP/Ingredient_Drawer.png" id="7_2xc2b"]
+[ext_resource type="AudioStream" uid="uid://cegnl4ir6xit1" path="res://Audio/SFX/drawerclose.wav" id="7_4etyd"]
 [ext_resource type="Texture2D" uid="uid://0c2u57q85yvk" path="res://Textures/TEMP/Close_Drawer.png" id="8_gap8n"]
+[ext_resource type="AudioStream" uid="uid://dsyqsttjbk266" path="res://Audio/SFX/knock.wav" id="9_0c0qq"]
 [ext_resource type="Texture2D" uid="uid://gechd7r6tfqd" path="res://Textures/TEMP/Check.png" id="11_3jvdg"]
 [ext_resource type="Texture2D" uid="uid://b5uqh4uw31b6" path="res://Textures/TEMP/Vignette.png" id="12_xvxjy"]
 
@@ -139,6 +142,16 @@ libraries = {
 z_index = 50
 texture = ExtResource("7_2xc2b")
 
+[node name="AudioStreamPlayer2DDrawerOpen" type="AudioStreamPlayer2D" parent="RecipeHandler_Node2D/Drawer_Node2D/Drawer_Sprite2D"]
+position = Vector2(0, 539)
+stream = ExtResource("6_th2ym")
+max_distance = 4000.0
+
+[node name="AudioStreamPlayer2DDrawerClose" type="AudioStreamPlayer2D" parent="RecipeHandler_Node2D/Drawer_Node2D/Drawer_Sprite2D"]
+position = Vector2(0, 539)
+stream = ExtResource("7_4etyd")
+max_distance = 4000.0
+
 [node name="Remove_Button" type="Button" parent="RecipeHandler_Node2D/Drawer_Node2D"]
 z_index = 50
 offset_left = -1450.0
@@ -150,6 +163,11 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_d6qek")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qao5b")
 icon_alignment = 1
 expand_icon = true
+
+[node name="AudioStreamPlayer2DKnock" type="AudioStreamPlayer2D" parent="RecipeHandler_Node2D/Drawer_Node2D/Remove_Button"]
+position = Vector2(146, 65)
+stream = ExtResource("9_0c0qq")
+max_distance = 4000.0
 
 [node name="Handle_Button" type="Button" parent="RecipeHandler_Node2D/Drawer_Node2D"]
 offset_left = -250.0
@@ -764,6 +782,11 @@ offset_bottom = 110.0
 texture_hover = ExtResource("6_3p6dy")
 stretch_mode = 0
 
+[node name="AudioStreamPlayer2DKnock" type="AudioStreamPlayer2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D/Base_Button"]
+position = Vector2(109, 106)
+stream = ExtResource("9_0c0qq")
+max_distance = 4000.0
+
 [node name="Ingredient-1_Node2D" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D" node_paths=PackedStringArray("next_slot") instance=ExtResource("4_nr6wd")]
 position = Vector2(-1235, -92)
 next_slot = NodePath("../Ingredient-2_Node2D")
@@ -827,6 +850,7 @@ texture = ExtResource("12_xvxjy")
 metadata/_edit_lock_ = true
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_v47ms")]
+visible = false
 z_index = 1000
 
 [connection signal="pressed" from="RecipeHandler_Node2D/Drawer_Node2D/Remove_Button" to="RecipeHandler_Node2D" method="_on_remove_button_pressed"]

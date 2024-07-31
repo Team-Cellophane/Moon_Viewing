@@ -1,6 +1,14 @@
 extends Sprite2D
 
 @export var card : String
+@export var play_click_on_ready = true
+
+@onready var _asp_click1 = $AudioStreamPlayer2DClick1
+@onready var _asp_click2 = $AudioStreamPlayer2DClick2
+@onready var _asp_click3 = $AudioStreamPlayer2DClick3
+@onready var _asp_pick1 = $AudioStreamPlayer2DPick1
+@onready var _asp_pick2 = $AudioStreamPlayer2DPick2
+@onready var _asp_pick3 = $AudioStreamPlayer2DPick3
 
 var order = 0
 
@@ -14,11 +22,15 @@ var border_offset = 70
 
 
 func _ready():
+	if (play_click_on_ready):
+		play_click()
 	load_page_content_sprite()
 
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		if (isSelected):
+			play_click()
 		isSelected = false
 
 
@@ -36,10 +48,38 @@ func _physics_process(delta):
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and _is_top_most_sprite():
+		play_pick()
 		click_offset = position - get_global_mouse_position()
 		isSelected = true
 		Global.set_z_indecies("card")
 
+func play_click():
+	var audio_stream_player = get_random_click_asp()
+	audio_stream_player.pitch_scale = Global.get_rand_pitch_scale()
+	audio_stream_player.play()
+	
+func get_random_click_asp():
+	var r = randf()
+	if r < 1.0/3.0 :
+		return _asp_click1
+	elif r > 2.0/3.0 :
+		return _asp_click2
+	else:
+		return _asp_click3
+		
+func play_pick():
+	var audio_stream_player = get_random_pick_asp()
+	audio_stream_player.pitch_scale = Global.get_rand_pitch_scale()
+	audio_stream_player.play()
+	
+func get_random_pick_asp():
+	var r = randf()
+	if r < 1.0/3.0 :
+		return _asp_pick1
+	elif r > 2.0/3.0 :
+		return _asp_pick2
+	else:
+		return _asp_pick3
 
 func set_target_position(new_position : Vector2):
 	target_position = new_position

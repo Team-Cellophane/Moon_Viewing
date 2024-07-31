@@ -18,6 +18,7 @@ config/icon="res://MoonViewingIcon.png"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+Audio="*res://Scripts/Audio.gd"
 
 [display]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjlnf28s6hpam"]
+[gd_scene load_steps=8 format=3 uid="uid://cjlnf28s6hpam"]
 
 [ext_resource type="Texture2D" uid="uid://0psj7pl7dwui" path="res://Textures/Background and Menu/square_card.png" id="1_bxtc0"]
 [ext_resource type="Script" path="res://Scripts/Ingredient_Sprite2D.gd" id="2_kgyto"]
+[ext_resource type="AudioStream" uid="uid://dsyqsttjbk266" path="res://Audio/SFX/knock.wav" id="3_m3e4n"]
 [ext_resource type="Texture2D" uid="uid://chf32yv2kmj4u" path="res://Textures/TEMP/Tooltip.png" id="3_q1h6d"]
 [ext_resource type="Texture2D" uid="uid://uiuw8m4eacxj" path="res://Textures/Ingredients/aether.png" id="4_qhupx"]
 
@@ -15,6 +16,10 @@ z_index = 98
 texture = ExtResource("1_bxtc0")
 script = ExtResource("2_kgyto")
 _ingredient_index = 143
+
+[node name="AudioStreamPlayer2DKnock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m3e4n")
+max_distance = 4000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

@@ -83,6 +83,9 @@ func get_current_recipe():
 	
 func get_current_scene_path():
 	return scenes[scene_number].path
+	
+func get_rand_pitch_scale():
+	return randf_range(0.8,1.2)
 
 class SceneInfo:
 	

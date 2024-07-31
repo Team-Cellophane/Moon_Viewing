@@ -13,6 +13,13 @@ extends Sprite2D
 @onready var _next_button = $Next_Button
 @onready var _min_button = $Min_Button
 
+@onready var _asp_paper1 = $AudioStreamPlayer2DPaper1
+@onready var _asp_paper2 = $AudioStreamPlayer2DPaper2
+@onready var _asp_paperset1 = $AudioStreamPlayer2DPaperSet1
+@onready var _asp_paperset2 = $AudioStreamPlayer2DPaperSet2
+@onready var _asp_fold = $AudioStreamPlayer2DFold
+@onready var _asp_unfold = $AudioStreamPlayer2DUnfold
+
 var isOpen = false
 var isSelected = false
 var returningHome = false
@@ -32,6 +39,10 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		if (isSelected):
+			var audio_stream_player = get_random_paperset_player()
+			audio_stream_player.pitch_scale = Global.get_rand_pitch_scale()
+			audio_stream_player.play()
 		isSelected = false
 
 
@@ -51,29 +62,46 @@ func _physics_process(delta):
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and _is_top_most_sprite():
+		if (isOpen):
+			var audio_stream_player = get_random_paper_player()
+			audio_stream_player.pitch_scale = Global.get_rand_pitch_scale()
+			audio_stream_player.play()
 		click_offset = position - get_global_mouse_position()
 		isSelected = is_draggable
 		Global.set_z_indecies(name)
 		do_open()
 
-
+func get_random_paper_player():
+	return _asp_paper1 if randf() > 0.5 else _asp_paper2
+	
+func get_random_paperset_player():
+	return _asp_paperset1 if randf() > 0.5 else _asp_paperset2
+	
 func _on_min_button_pressed():
 	returningHome = true
 	do_close()
 
 
 func _on_prev_button_pressed():
+	var audio_stream_player = get_random_paper_player()
+	audio_stream_player.pitch_scale = Global.get_rand_pitch_scale() - 0.1
+	audio_stream_player.play()
 	current_page -= 1
 	load_page_content_sprite(false)
 
 
 func _on_next_button_pressed():
+	var audio_stream_player = get_random_paper_player()
+	audio_stream_player.pitch_scale = Global.get_rand_pitch_scale() + 0.1
+	audio_stream_player.play()
 	current_page += 1
 	load_page_content_sprite(false)
 
 
 func do_open():
 	if not isOpen:
+		_asp_unfold.pitch_scale = Global.get_rand_pitch_scale()
+		_asp_unfold.play()
 		if landscape:
 			_animation_player.play("Page_Expand_Landscape")
 		else:
@@ -85,6 +113,8 @@ func do_open():
 
 func do_close():
 	if isOpen:
+		_asp_fold.pitch_scale = Global.get_rand_pitch_scale()
+		_asp_fold.play()
 		if landscape:
 			_animation_player.play("Page_Shrink_Landscape")
 		else:

@@ -1,9 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://bc0vn45w55w5y"]
+[gd_scene load_steps=27 format=3 uid="uid://bc0vn45w55w5y"]
 
 [ext_resource type="Texture2D" uid="uid://bpxfnwksrqlo2" path="res://Textures/TEMP/Paper.png" id="1_kw7od"]
 [ext_resource type="Script" path="res://Scripts/Draggable.gd" id="2_leodq"]
+[ext_resource type="AudioStream" uid="uid://bf1x6lvehw3vp" path="res://Audio/SFX/paper1.wav" id="3_wv4j2"]
 [ext_resource type="Texture2D" uid="uid://jjr2akedn747" path="res://Textures/TEMP/X.png" id="3_xgvnu"]
 [ext_resource type="Texture2D" uid="uid://dcbldhf4f6s5u" path="res://Textures/TEMP/Arrow.png" id="4_gdnkx"]
+[ext_resource type="AudioStream" uid="uid://2oxjcvavw6fo" path="res://Audio/SFX/paper2.wav" id="4_kqs8g"]
+[ext_resource type="AudioStream" uid="uid://dxpkfdt188kss" path="res://Audio/SFX/paperset1.wav" id="5_dkg74"]
+[ext_resource type="AudioStream" uid="uid://bo54370y5e3wf" path="res://Audio/SFX/paperset2.wav" id="6_558vk"]
+[ext_resource type="AudioStream" uid="uid://drj0mvwpwxa01" path="res://Audio/SFX/paperfold1.wav" id="7_h3dtp"]
+[ext_resource type="AudioStream" uid="uid://trrcx2be74ys" path="res://Audio/SFX/paperunfold1.wav" id="8_a02wx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1836w"]
 texture = ExtResource("3_xgvnu")
@@ -307,6 +313,30 @@ _data = {
 scale = Vector2(1, 0.395)
 texture = ExtResource("1_kw7od")
 script = ExtResource("2_leodq")
+
+[node name="AudioStreamPlayer2DPaper1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wv4j2")
+max_distance = 4000.0
+
+[node name="AudioStreamPlayer2DPaper2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kqs8g")
+max_distance = 4000.0
+
+[node name="AudioStreamPlayer2DPaperSet1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dkg74")
+max_distance = 4000.0
+
+[node name="AudioStreamPlayer2DPaperSet2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_558vk")
+max_distance = 4000.0
+
+[node name="AudioStreamPlayer2DFold" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_h3dtp")
+max_distance = 4000.0
+
+[node name="AudioStreamPlayer2DUnfold" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_a02wx")
+max_distance = 4000.0
 
 [node name="Min_Button" type="Button" parent="."]
 visible = false

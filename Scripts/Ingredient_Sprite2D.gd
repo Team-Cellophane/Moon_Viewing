@@ -7,6 +7,7 @@ extends Sprite2D
 @onready var _info_ingredient_sprite = $Sprite2D/Node2D/Card/Ingredient
 @onready var _info_index = $Sprite2D/Node2D/Index
 @onready var _info_text = $Sprite2D/Node2D/Name
+@onready var _asp_knock = $AudioStreamPlayer2DKnock
 
 signal ingredient_selected
 
@@ -32,4 +33,6 @@ func _on_button_mouse_exited():
 
 
 func _on_button_pressed():
+	_asp_knock.pitch_scale = Global.get_rand_pitch_scale()
+	_asp_knock.play()
 	ingredient_selected.emit(_ingredient_index, _ingredient_sprite.texture)

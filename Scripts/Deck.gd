@@ -3,7 +3,9 @@ extends Sprite2D
 @onready var _card_layer = $"../CardLayer"
 @onready var _display = $Display
 @onready var _display_card = $Display/Card
-
+@onready var _audio_stream_player_reset1 = $AudioStreamPlayer2DResetSound1
+@onready var _audio_stream_player_reset2 = $AudioStreamPlayer2DResetSound2
+@onready var _audio_stream_player_select = $AudioStreamPlayer2DSelectSound
 
 var _moused_over = false
 var deck : Array[String]
@@ -46,6 +48,8 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		if (deck.size() != 0):
 			_selected_card = posmod(_selected_card - 1, deck.size())
 			_display_card.set_card(deck[_selected_card])
+			_audio_stream_player_select.pitch_scale = Global.get_rand_pitch_scale() + 0.1
+			_audio_stream_player_select.play()
 		Global.set_z_indecies("card")
 		return
 		
@@ -53,6 +57,8 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		if (deck.size() != 0):
 			_selected_card = posmod(_selected_card + 1, deck.size())
 			_display_card.set_card(deck[_selected_card])
+			_audio_stream_player_select.pitch_scale = Global.get_rand_pitch_scale() - 0.1
+			_audio_stream_player_select.play()
 		Global.set_z_indecies("card")
 		return
 		
@@ -61,9 +67,14 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		Global.set_z_indecies("card")
 		return
 		
-
+func get_random_reset_player():
+	return _audio_stream_player_reset1 if randf() > 0.5 else _audio_stream_player_reset2
 		
 func reset_deck():
+	if (_num_cards_out != 0):
+		var audio_stream_player = get_random_reset_player()
+		audio_stream_player.pitch_scale = Global.get_rand_pitch_scale()
+		audio_stream_player.play()
 	deck = ["1b","1p","1l","1r","2a","2p","2l","2r","3b","3p","3l","3r","4a","4p","4l","4r","5a","5p","5l","5r","6a","6p","6l","6r","7a","7p","7l","7r","8b","8a","8l","8r","9s","9p","9l","9r","Aa","Ap","Al","Ar","Bb","Ba","Bp","Bs","Cb","Cl","Cs","Cr"]
 	for child in _card_layer.get_children():
 		child.queue_free()

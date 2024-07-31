@@ -12,10 +12,14 @@ signal slot_selected
 @onready var _info_ingredient_sprite = $Node2D/Card/Ingredient
 @onready var _info_index = $Node2D/Index
 @onready var _info_text = $Node2D/Name
+@onready var _asp_knock = $AudioStreamPlayer2DKnock
 
 var ingredient_index = -1
 
 func _on_ingredient_slot_button_pressed(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_asp_knock.pitch_scale = Global.get_rand_pitch_scale()
+		_asp_knock.play()
 	slot_selected.emit(self, event)
 	
 
