@@ -75,15 +75,16 @@ Right click to reset"
 scroll_active = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Display"]
-offset_left = -171.0
-offset_top = -1003.0
-offset_right = -49.0
-offset_bottom = -841.0
+offset_left = -308.571
+offset_top = -1177.14
+offset_right = -97.5711
+offset_bottom = -897.143
 scale = Vector2(2.857, 2.857)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 39
 bbcode_enabled = true
-text = "[center]Deck
+text = "[center]
+Deck
 is 
 empty"
 

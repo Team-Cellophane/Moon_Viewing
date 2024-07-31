@@ -1,6 +1,6 @@
 extends Node
 
-var scene_number = 24
+var scene_number = 0
 var current_scene = null
 var previous_recipe_correct = true
 var scenes
