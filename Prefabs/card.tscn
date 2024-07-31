@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvydnu4kmxalf"]
+[gd_scene load_steps=12 format=3 uid="uid://dvydnu4kmxalf"]
 
 [ext_resource type="Texture2D" uid="uid://2aft1hmnoku4" path="res://Textures/Cards/1b.png" id="1_jkae2"]
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="2_5jlvm"]
 [ext_resource type="AudioStream" uid="uid://b6sf42tuoht4m" path="res://Audio/SFX/cardclick1.wav" id="3_06vv5"]
 [ext_resource type="Texture2D" uid="uid://b20k4tayww7wc" path="res://Textures/Cards/red_border.png" id="3_jvfju"]
+[ext_resource type="Texture2D" uid="uid://dunluveyspei4" path="res://Textures/TEMP/CardShadow.png" id="3_ru0qh"]
 [ext_resource type="AudioStream" uid="uid://bcov5qw7vr4q4" path="res://Audio/SFX/cardclick2.wav" id="4_u75xs"]
 [ext_resource type="AudioStream" uid="uid://iwqov2yn8qpm" path="res://Audio/SFX/cardclick3.wav" id="5_mp3a7"]
 [ext_resource type="AudioStream" uid="uid://s2ix3re8jumh" path="res://Audio/SFX/cardpick1.wav" id="6_qajer"]
@@ -18,6 +19,14 @@ z_index = 97
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_jkae2")
 script = ExtResource("2_5jlvm")
+
+[node name="ShadowSprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.196078)
+z_index = -1
+position = Vector2(57.14, 171.43)
+scale = Vector2(1, 1)
+texture = ExtResource("3_ru0qh")
 
 [node name="AudioStreamPlayer2DClick1" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(1, 1)

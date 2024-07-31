@@ -20,6 +20,8 @@ extends Sprite2D
 @onready var _asp_fold = $AudioStreamPlayer2DFold
 @onready var _asp_unfold = $AudioStreamPlayer2DUnfold
 
+@onready var _shadow_sprite2d = $ShadowSprite2D
+
 var isOpen = false
 var isSelected = false
 var returningHome = false
@@ -40,6 +42,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		if (isSelected):
+			_shadow_sprite2d.visible = false
 			var audio_stream_player = get_random_paperset_player()
 			audio_stream_player.pitch_scale = Global.get_rand_pitch_scale()
 			audio_stream_player.play()
@@ -49,6 +52,7 @@ func _input(event):
 func _physics_process(delta):
 	z_index = Global.get_z_index(name)
 	if isSelected:
+		_shadow_sprite2d.visible = true
 		get_mouse_location_in_bounds()
 		global_position = lerp(global_position, get_mouse_location_in_bounds(), 25 * delta)
 	elif returningHome:

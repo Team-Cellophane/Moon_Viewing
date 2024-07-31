@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://bc0vn45w55w5y"]
+[gd_scene load_steps=28 format=3 uid="uid://bc0vn45w55w5y"]
 
 [ext_resource type="Texture2D" uid="uid://bpxfnwksrqlo2" path="res://Textures/TEMP/Paper.png" id="1_kw7od"]
 [ext_resource type="Script" path="res://Scripts/Draggable.gd" id="2_leodq"]
+[ext_resource type="Texture2D" uid="uid://bad1bckcf2pn" path="res://Textures/TEMP/PaperShadow.png" id="3_u5sip"]
 [ext_resource type="AudioStream" uid="uid://bf1x6lvehw3vp" path="res://Audio/SFX/paper1.wav" id="3_wv4j2"]
 [ext_resource type="Texture2D" uid="uid://jjr2akedn747" path="res://Textures/TEMP/X.png" id="3_xgvnu"]
 [ext_resource type="Texture2D" uid="uid://dcbldhf4f6s5u" path="res://Textures/TEMP/Arrow.png" id="4_gdnkx"]
@@ -156,6 +157,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [-1.5708]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ShadowSprite2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(60, -20)]
+}
 
 [sub_resource type="Animation" id="Animation_nf4mn"]
 resource_name = "Page_Shrink"
@@ -299,6 +312,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ShadowSprite2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 60)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6ply"]
 _data = {
@@ -313,6 +338,13 @@ _data = {
 scale = Vector2(1, 0.395)
 texture = ExtResource("1_kw7od")
 script = ExtResource("2_leodq")
+
+[node name="ShadowSprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.196078)
+z_index = -1
+position = Vector2(20, 60)
+texture = ExtResource("3_u5sip")
 
 [node name="AudioStreamPlayer2DPaper1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_wv4j2")

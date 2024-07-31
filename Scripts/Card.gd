@@ -9,6 +9,7 @@ extends Sprite2D
 @onready var _asp_pick1 = $AudioStreamPlayer2DPick1
 @onready var _asp_pick2 = $AudioStreamPlayer2DPick2
 @onready var _asp_pick3 = $AudioStreamPlayer2DPick3
+@onready var _shadow_sprite2d = $ShadowSprite2D
 
 var order = 0
 
@@ -30,6 +31,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		if (isSelected):
+			_shadow_sprite2d.visible = false
 			play_click()
 		isSelected = false
 
@@ -37,6 +39,8 @@ func _input(event):
 func _physics_process(delta):
 	z_index = Global.get_z_index("card") + order
 	if isSelected:
+		_shadow_sprite2d.visible = true
+		z_index = 301
 		get_mouse_location_in_bounds()
 		global_position = lerp(global_position, get_mouse_location_in_bounds(), 25 * delta)
 	elif returningHome:

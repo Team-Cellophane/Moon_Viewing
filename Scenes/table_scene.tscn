@@ -850,7 +850,6 @@ texture = ExtResource("12_xvxjy")
 metadata/_edit_lock_ = true
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_v47ms")]
-visible = false
 z_index = 1000
 
 [connection signal="pressed" from="RecipeHandler_Node2D/Drawer_Node2D/Remove_Button" to="RecipeHandler_Node2D" method="_on_remove_button_pressed"]
