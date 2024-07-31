@@ -18,6 +18,7 @@ This work, "Moon Viewing", adapts and modifies all images included in "SVG Hanaf
 
 This work, "Moon Viewing", includes "QTCaligulatype" from the "QualiType font collection"[https://www.ctan.org/tex-archive/fonts/qualitype/], by QualiType, used under GNU GPLv3[https://www.gnu.org/licenses/gpl-3.0.html]. "Moon Viewing" is licensed under GNU GPLv3[https://www.gnu.org/licenses/gpl-3.0.html].
 
+This work, "Moon Viewing", adapts and modifies "Summer Cicada" by harrietniamh -- https://freesound.org/s/400179/ -- License: Attribution 4.0[https://creativecommons.org/licenses/by/4.0/]
 
 
                     GNU GENERAL PUBLIC LICENSE

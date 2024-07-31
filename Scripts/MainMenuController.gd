@@ -7,13 +7,13 @@ extends Node2D
 @onready var _background_animation_player = $Background/BackgroundAnimationPlayer
 @onready var _credits_animation_player = $Node2/CreditsAnimationPlayer
 @onready var _letter = $PlaintextLetter
+@onready var _asp_cicada_animation_player = $AudioStreamPlayerCicada/CicadaAnimationPlayer
 
 @onready var _continue_button = $ContinueButton
 
 func _ready():
 	if (Global.scene_number != 0 && Global.get_current_recipe() != "credits"):
 		_title.visible = false
-		#play music/ sfx
 		_display_letter_or_continue()
 	elif (Global.get_current_recipe() == "credits"):
 		_do_end_credits()

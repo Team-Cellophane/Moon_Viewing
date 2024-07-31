@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://cqdtuu446wwcv"]
+[gd_scene load_steps=26 format=3 uid="uid://cqdtuu446wwcv"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_6eort"]
 [ext_resource type="Texture2D" uid="uid://wlf47v5opds2" path="res://Textures/Background and Menu/WindowScene1080p.png" id="1_wb45a"]
 [ext_resource type="Shader" path="res://Textures/Shaders/blur.gdshader" id="2_0pdv8"]
+[ext_resource type="AudioStream" uid="uid://dtjdquhuqed5q" path="res://Audio/SFX/cicadanew.wav" id="2_f212j"]
 [ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_0inqc"]
 [ext_resource type="FontFile" uid="uid://7kktliyaaq7s" path="res://Textures/Fonts/QT Caligulatype.ttf" id="4_64kbp"]
 [ext_resource type="Texture2D" uid="uid://cjhlb5tbpf8t5" path="res://Textures/TEMP/Continue.png" id="5_t2cjw"]
@@ -282,6 +283,13 @@ modulate_color = Color(0.662452, 0.662452, 0.662452, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6eort")
+
+[node name="AudioStreamPlayerCicada" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_f212j")
+volume_db = -80.0
+autoplay = true
+
+[node name="CicadaAnimationPlayer" type="AnimationPlayer" parent="AudioStreamPlayerCicada"]
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
