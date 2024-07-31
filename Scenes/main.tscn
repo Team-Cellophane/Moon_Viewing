@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://cqdtuu446wwcv"]
+[gd_scene load_steps=25 format=3 uid="uid://cqdtuu446wwcv"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_6eort"]
 [ext_resource type="Texture2D" uid="uid://wlf47v5opds2" path="res://Textures/Background and Menu/WindowScene1080p.png" id="1_wb45a"]
 [ext_resource type="Shader" path="res://Textures/Shaders/blur.gdshader" id="2_0pdv8"]
 [ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_0inqc"]
 [ext_resource type="FontFile" uid="uid://7kktliyaaq7s" path="res://Textures/Fonts/QT Caligulatype.ttf" id="4_64kbp"]
+[ext_resource type="Texture2D" uid="uid://cjhlb5tbpf8t5" path="res://Textures/TEMP/Continue.png" id="5_t2cjw"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="6_64hv1"]
+[ext_resource type="Texture2D" uid="uid://cdb53vleaiul2" path="res://Textures/TEMP/Play.png" id="6_lqmka"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mfoq"]
 shader = ExtResource("2_0pdv8")
@@ -264,6 +266,20 @@ _data = {
 "RESET": SubResource("Animation_2uhf7")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fmmt"]
+texture = ExtResource("5_t2cjw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypokd"]
+texture = ExtResource("5_t2cjw")
+modulate_color = Color(0.658824, 0.658824, 0.658824, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucvqd"]
+texture = ExtResource("6_lqmka")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_te33d"]
+texture = ExtResource("6_lqmka")
+modulate_color = Color(0.662452, 0.662452, 0.662452, 1)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6eort")
 
@@ -329,12 +345,13 @@ libraries = {
 
 [node name="ContinueButton" type="Button" parent="."]
 visible = false
-offset_left = 3111.0
-offset_top = 1918.0
-offset_right = 3780.0
-offset_bottom = 2111.0
+offset_left = 2950.0
+offset_top = 1850.0
+offset_right = 3619.0
+offset_bottom = 2043.0
 theme_override_font_sizes/font_size = 72
-text = "Continue"
+theme_override_styles/normal = SubResource("StyleBoxTexture_0fmmt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ypokd")
 
 [node name="PlayButton" type="Button" parent="."]
 visible = false
@@ -343,7 +360,8 @@ offset_top = 1393.0
 offset_right = 2250.0
 offset_bottom = 1586.0
 theme_override_font_sizes/font_size = 72
-text = "Play"
+theme_override_styles/normal = SubResource("StyleBoxTexture_ucvqd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_te33d")
 
 [node name="PlaintextLetter" parent="." instance=ExtResource("6_64hv1")]
 position = Vector2(1920, 3000)
@@ -352,6 +370,7 @@ is_draggable = false
 min_button_enabled = false
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_0inqc")]
+visible = false
 z_index = 99
 
 [connection signal="pressed" from="ContinueButton" to="SceneTransition" method="_on_button_pressed"]
