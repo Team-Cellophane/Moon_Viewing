@@ -370,7 +370,6 @@ is_draggable = false
 min_button_enabled = false
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_0inqc")]
-visible = false
 z_index = 99
 
 [connection signal="pressed" from="ContinueButton" to="SceneTransition" method="_on_button_pressed"]
