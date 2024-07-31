@@ -33,6 +33,7 @@ func _display_letter_or_continue():
 	
 
 func _on_play_button_pressed():
+	MusicPlayer.play_scene_chord()
 	_play_button.visible = false
 	_title_animation_player.play("Fade_Out")
 	_background_animation_player.play("Blur_On")
@@ -43,7 +44,8 @@ func _on_play_button_pressed():
 	
 func _do_end_credits():
 	_title_animation_player.play("Fade_In")
-	await _title_animation_player.animation_finished
+	await MusicPlayer.finished
+	MusicPlayer.play_Moon_Viewing()
 	_credits_animation_player.play("Credits")
 	await get_tree().create_timer(4).timeout
 	_title_animation_player.play("Fade_Out")

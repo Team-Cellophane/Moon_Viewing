@@ -18,6 +18,7 @@ config/icon="res://MoonViewingIcon.png"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+MusicPlayer="*res://Prefabs/music_player.tscn"
 
 [display]
 

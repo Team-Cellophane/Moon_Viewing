@@ -1,6 +1,6 @@
 extends Node
 
-var scene_number = 0
+var scene_number = 24
 var current_scene = null
 var previous_recipe_correct = true
 var scenes
@@ -67,7 +67,6 @@ func _deferred_go_to_current_scene():
 	current_scene = s.instantiate()
 	
 	get_tree().root.add_child(current_scene)
-	print(scene_number)
 
 func get_current_scene_number():
 	return scene_number
@@ -84,6 +83,9 @@ func get_current_recipe():
 func get_current_scene_path():
 	return scenes[scene_number].path
 	
+func get_current_scene_music_squence():
+	return scenes[scene_number].music_squence
+	
 func get_rand_pitch_scale():
 	return randf_range(0.8,1.2)
 
@@ -93,12 +95,14 @@ class SceneInfo:
 	var letter : String
 	var decipher : String
 	var recipe : String
+	var music_squence : String
 	
-	func _init(p, l, d, r):
+	func _init(p, l, d, r, m):
 		path = p
 		letter = l
 		decipher = d
 		recipe = r
+		music_squence = m
 		
 class Ingredient:
 	
@@ -112,33 +116,33 @@ class Ingredient:
 		display_name = d
 
 func set_scenes():
-	scenes = 	[		SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-1","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-1","Decipher/decipher-1","w,109x1,42x1"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-2","Decipher/decipher-1","o,51x1,93x1,17x1,32x1"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-3","Decipher/decipher-1","o,7x1,7x1,11x1,132x1"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-4","Decipher/decipher-1","w,59x1,125x1,45x1,15x1,58x1,32x1"),
-						SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-2","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-5","Decipher/decipher-2","o,14x18,46x14,48x2,92x10"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-6","Decipher/decipher-2","o,28x6,44x12,83x8,55x12,32x18"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-7","Decipher/decipher-2","w,49x6,43x7,52x3"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-8","Decipher/decipher-2","o,67x5,41x35,77x25,52x5"),
-						SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-3","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-9","Decipher/decipher-3","o,25x1,127x4,74x8,112x5"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-10","Decipher/decipher-3","o,27x30,38x30,120x60,132x50"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-11","Decipher/decipher-3","w,36x8,68x12,6x18,45x2,89x2,12x2"),
-						SceneInfo.new("res://Scenes/main.tscn","","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-12","Decipher/decipher-3","o,60x45,33x40,22x30"),
-						SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-4","",""),
-						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-13","Decipher/decipher-4","w,81x900"),
-						SceneInfo.new("res://Scenes/main.tscn","","","credits")
+	scenes = 	[		SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-1","","","1"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-1","Decipher/decipher-1","w,109x1,42x1","1"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","1"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-2","Decipher/decipher-1","o,51x1,93x1,17x1,32x1","1"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","1"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-3","Decipher/decipher-1","o,7x1,7x1,11x1,132x1","1"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","1"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-4","Decipher/decipher-1","w,59x1,125x1,45x1,15x1,58x1,32x1","2"),
+						SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-2","","","2"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-5","Decipher/decipher-2","o,14x18,46x14,48x2,92x10","2"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","2"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-6","Decipher/decipher-2","o,28x6,44x12,83x8,55x12,32x18","2"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","2"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-7","Decipher/decipher-2","w,49x6,43x7,52x3","2"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","2"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-8","Decipher/decipher-2","o,67x5,41x35,77x25,52x5","3"),
+						SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-3","","","3"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-9","Decipher/decipher-3","o,25x1,127x4,74x8,112x5","3"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","3"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-10","Decipher/decipher-3","o,27x30,38x30,120x60,132x50","3"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","3"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-11","Decipher/decipher-3","w,36x8,68x12,6x18,45x2,89x2,12x2","3"),
+						SceneInfo.new("res://Scenes/main.tscn","","","","3"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-12","Decipher/decipher-3","o,60x45,33x40,22x30","4"),
+						SceneInfo.new("res://Scenes/main.tscn","PlaintextLetters/plaintext-4","","","4"),
+						SceneInfo.new("res://Scenes/table_scene.tscn","Letters/letter-13","Decipher/decipher-4","w,81x900","5"),
+						SceneInfo.new("res://Scenes/main.tscn","","","credits","0")
 					]
 
 func set_ingredients():

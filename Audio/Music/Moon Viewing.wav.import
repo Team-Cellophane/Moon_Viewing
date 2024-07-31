@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dlwitrgay06a6"
+path="res://.godot/imported/Moon Viewing.wav-f9d2207f09966de3b4878f79c224cdc5.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Moon Viewing.wav"
+dest_files=["res://.godot/imported/Moon Viewing.wav-f9d2207f09966de3b4878f79c224cdc5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
