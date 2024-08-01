@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var lite_mode = false
 
 @onready var _title = $Node/Title
 @onready var _title_animation_player = $Node/TitleAnimationPlayer
@@ -19,14 +20,14 @@ func _ready():
 		_do_end_credits()
 	else:
 		_title_animation_player.play("Fade_In")
-		_background_animation_player.play("Blur_Off")
+		_background_animation_player.play("Blur_Off" + ("_Lite" if lite_mode else ""))
 		await _title_animation_player.animation_finished
 		_play_button.visible = true
 
 func _display_letter_or_continue():
 	await get_tree().create_timer(5).timeout
 	if (Global.get_current_letter_path() != ""):
-		_background_animation_player.play("Blur_On")
+		_background_animation_player.play("Blur_On" + ("_Lite" if lite_mode else ""))
 		_letter.do_open()
 		_letter.set_target_position(Vector2(1920, 1080))
 	_continue_button.visible = true
@@ -36,7 +37,7 @@ func _on_play_button_pressed():
 	MusicPlayer.play_scene_chord()
 	_play_button.visible = false
 	_title_animation_player.play("Fade_Out")
-	_background_animation_player.play("Blur_On")
+	_background_animation_player.play("Blur_On" + ("_Lite" if lite_mode else ""))
 	await _background_animation_player.animation_finished
 	_letter.do_open()
 	_letter.set_target_position(Vector2(1920, 1080))
@@ -49,6 +50,6 @@ func _do_end_credits():
 	_credits_animation_player.play("Credits")
 	await get_tree().create_timer(4).timeout
 	_title_animation_player.play("Fade_Out")
-	_background_animation_player.play("Blur_On")
+	_background_animation_player.play("Blur_On" + ("_Lite" if lite_mode else ""))
 	await _credits_animation_player.animation_finished
-	_background_animation_player.play("Blur_Off")
+	_background_animation_player.play("Blur_Off" + ("_Lite" if lite_mode else ""))

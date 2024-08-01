@@ -25,36 +25,29 @@ visible = false
 modulate = Color(1, 1, 1, 0.196078)
 z_index = -1
 position = Vector2(57.14, 171.43)
-scale = Vector2(1, 1)
 texture = ExtResource("3_ru0qh")
 
 [node name="AudioStreamPlayer2DClick1" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("3_06vv5")
 max_distance = 4000.0
 
 [node name="AudioStreamPlayer2DClick2" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("4_u75xs")
 max_distance = 4000.0
 
 [node name="AudioStreamPlayer2DClick3" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("5_mp3a7")
 max_distance = 4000.0
 
 [node name="AudioStreamPlayer2DPick1" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("6_qajer")
 max_distance = 4000.0
 
 [node name="AudioStreamPlayer2DPick2" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("7_6ouaq")
 max_distance = 4000.0
 
 [node name="AudioStreamPlayer2DPick3" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("8_2fsyf")
 max_distance = 4000.0
 
