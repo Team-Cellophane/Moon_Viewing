@@ -152,6 +152,14 @@ position = Vector2(0, 539)
 stream = ExtResource("7_4etyd")
 max_distance = 4000.0
 
+[node name="ColorRect" type="ColorRect" parent="RecipeHandler_Node2D/Drawer_Node2D/Drawer_Sprite2D"]
+offset_left = -1510.0
+offset_top = -600.0
+offset_right = 1510.0
+offset_bottom = 540.0
+mouse_force_pass_scroll_events = false
+color = Color(1, 1, 1, 0)
+
 [node name="Remove_Button" type="Button" parent="RecipeHandler_Node2D/Drawer_Node2D"]
 z_index = 50
 offset_left = -1450.0
@@ -773,6 +781,14 @@ z_index = 300
 z_index = 50
 position = Vector2(1919, 2025)
 texture = ExtResource("6_oeaio")
+
+[node name="ColorRect" type="ColorRect" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
+offset_left = -1510.0
+offset_top = -126.0
+offset_right = 1510.0
+offset_bottom = 136.0
+mouse_force_pass_scroll_events = false
+color = Color(1, 1, 1, 0)
 
 [node name="Base_Button" type="TextureButton" parent="RecipeHandler_Node2D/RecipeScroll_Node2D/Scroll_Sprite2D"]
 offset_left = -1486.0
