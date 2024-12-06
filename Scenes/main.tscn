@@ -1,51 +1,47 @@
-[gd_scene load_steps=26 format=3 uid="uid://cqdtuu446wwcv"]
+[gd_scene load_steps=25 format=3 uid="uid://cqdtuu446wwcv"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_6eort"]
 [ext_resource type="Texture2D" uid="uid://wlf47v5opds2" path="res://Textures/Background and Menu/WindowScene1080p.png" id="1_wb45a"]
-[ext_resource type="Shader" path="res://Textures/Shaders/blur.gdshader" id="2_0pdv8"]
 [ext_resource type="AudioStream" uid="uid://dtjdquhuqed5q" path="res://Audio/SFX/cicadanew.wav" id="2_f212j"]
 [ext_resource type="PackedScene" uid="uid://chryng88xj0qx" path="res://Prefabs/scene_transition.tscn" id="4_0inqc"]
 [ext_resource type="FontFile" uid="uid://7kktliyaaq7s" path="res://Textures/Fonts/QT Caligulatype.ttf" id="4_64kbp"]
+[ext_resource type="Texture2D" uid="uid://hf5o0d4an81v" path="res://Textures/Background and Menu/WindowSceneBlurred1080p.png" id="4_jl048"]
 [ext_resource type="Texture2D" uid="uid://cjhlb5tbpf8t5" path="res://Textures/TEMP/Continue.png" id="5_t2cjw"]
 [ext_resource type="PackedScene" uid="uid://bc0vn45w55w5y" path="res://Prefabs/sprite_reference_paper.tscn" id="6_64hv1"]
 [ext_resource type="Texture2D" uid="uid://cdb53vleaiul2" path="res://Textures/TEMP/Play.png" id="6_lqmka"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mfoq"]
-shader = ExtResource("2_0pdv8")
-shader_parameter/strength = 0.0
-
 [sub_resource type="Animation" id="Animation_dh8qh"]
 resource_name = "blur_on"
 length = 5.0
-capture_included = true
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background:material:shader_parameter/strength")
+tracks/0/path = NodePath("Background/Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 2,
-"values": [10, 0]
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_2u4my"]
 resource_name = "blur_on"
 length = 3.0
-capture_included = true
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background:material:shader_parameter/strength")
+tracks/0/path = NodePath("Background/Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 2,
-"values": [0, 10]
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_x1fux"]
@@ -53,14 +49,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background:material:shader_parameter/strength")
+tracks/0/path = NodePath("Background/Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e25uo"]
@@ -295,10 +291,13 @@ autoplay = true
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-material = SubResource("ShaderMaterial_1mfoq")
 position = Vector2(1920, 1080)
 scale = Vector2(2, 2)
 texture = ExtResource("1_wb45a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("4_jl048")
 
 [node name="BackgroundAnimationPlayer" type="AnimationPlayer" parent="Background"]
 root_node = NodePath("../..")
