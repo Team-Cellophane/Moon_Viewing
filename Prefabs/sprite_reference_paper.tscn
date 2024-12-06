@@ -12,36 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://drj0mvwpwxa01" path="res://Audio/SFX/paperfold1.wav" id="7_h3dtp"]
 [ext_resource type="AudioStream" uid="uid://trrcx2be74ys" path="res://Audio/SFX/paperunfold1.wav" id="8_a02wx"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3w84"]
-texture = ExtResource("3_xgvnu")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_faggl"]
-texture = ExtResource("3_xgvnu")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1836w"]
-texture = ExtResource("3_xgvnu")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h5as6"]
-texture = ExtResource("4_gdnkx")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fe62d"]
-texture = ExtResource("4_gdnkx")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tctbv"]
-texture = ExtResource("4_gdnkx")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0uv4t"]
-texture = ExtResource("4_gdnkx")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3e5x"]
-texture = ExtResource("4_gdnkx")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmssx"]
-texture = ExtResource("4_gdnkx")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnx6v"]
-size = Vector2(1326, 1716.46)
-
 [sub_resource type="Animation" id="Animation_jybm4"]
 resource_name = "Page_Expand"
 length = 0.2
@@ -56,6 +26,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 0.395), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageBottom:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 1694), Vector2(1304, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageBottom:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-652, -847), Vector2(-652, 847)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PageTop:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 1694), Vector2(1304, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PageTop:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-652, -847), Vector2(-652, -847)]
 }
 
 [sub_resource type="Animation" id="Animation_aalur"]
@@ -169,6 +187,54 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(60, -20)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PageBottom:size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 1694), Vector2(1304, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PageBottom:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-652, -847), Vector2(-652, 847)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PageTop:size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 1694), Vector2(1304, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PageTop:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-652, -847), Vector2(-652, -847)]
+}
 
 [sub_resource type="Animation" id="Animation_nf4mn"]
 resource_name = "Page_Shrink"
@@ -184,6 +250,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 0.395)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageBottom:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 0), Vector2(1304, 1694)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageBottom:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-652, 847), Vector2(-652, -847)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PageTop:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 0), Vector2(1304, 1694)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PageTop:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-652, -847), Vector2(-652, -847)]
 }
 
 [sub_resource type="Animation" id="Animation_prilc"]
@@ -212,6 +326,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.5708, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageBottom:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 0), Vector2(1304, 1694)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PageBottom:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-652, 847), Vector2(-652, -847)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PageTop:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 0), Vector2(1304, 1694)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PageTop:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-652, -847), Vector2(-652, -847)]
 }
 
 [sub_resource type="Animation" id="Animation_yfuul"]
@@ -324,6 +486,54 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(20, 60)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PageBottom:size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1304, 1694)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PageBottom:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-652, -847)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PageTop:size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1304, 1694)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PageTop:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-652, -847)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6ply"]
 _data = {
@@ -333,6 +543,36 @@ _data = {
 "Page_Shrink_Landscape": SubResource("Animation_prilc"),
 "RESET": SubResource("Animation_yfuul")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnx6v"]
+size = Vector2(1326, 1716.46)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3w84"]
+texture = ExtResource("3_xgvnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_faggl"]
+texture = ExtResource("3_xgvnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1836w"]
+texture = ExtResource("3_xgvnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h5as6"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fe62d"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tctbv"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0uv4t"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3e5x"]
+texture = ExtResource("4_gdnkx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmssx"]
+texture = ExtResource("4_gdnkx")
 
 [node name="Sprite2D" type="Sprite2D" groups=["Papers"]]
 scale = Vector2(1, 0.395)
@@ -369,6 +609,38 @@ max_distance = 4000.0
 [node name="AudioStreamPlayer2DUnfold" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_a02wx")
 max_distance = 4000.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c6ply")
+}
+
+[node name="Content_Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Salutation_Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+
+[node name="PageBottom" type="ColorRect" parent="."]
+offset_left = -652.0
+offset_top = -847.0
+offset_right = 652.0
+offset_bottom = 847.0
+mouse_filter = 1
+color = Color(1, 0.984314, 0.886275, 1)
+
+[node name="PageTop" type="ColorRect" parent="."]
+offset_left = -652.0
+offset_top = -847.0
+offset_right = 652.0
+offset_bottom = 847.0
+mouse_filter = 1
+color = Color(1, 0.984314, 0.886275, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 8.75207e-06)
+shape = SubResource("RectangleShape2D_tnx6v")
 
 [node name="Min_Button" type="Button" parent="."]
 visible = false
@@ -412,23 +684,7 @@ action_mode = 0
 icon = ExtResource("4_gdnkx")
 flat = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 8.75207e-06)
-shape = SubResource("RectangleShape2D_tnx6v")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_c6ply")
-}
-
-[node name="Content_Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Salutation_Sprite2D2" type="Sprite2D" parent="."]
-visible = false
-
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="pressed" from="Min_Button" to="." method="_on_min_button_pressed"]
 [connection signal="pressed" from="Prev_Button" to="." method="_on_prev_button_pressed"]
 [connection signal="pressed" from="Next_Button" to="." method="_on_next_button_pressed"]
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
