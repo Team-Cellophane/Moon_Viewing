@@ -54,7 +54,7 @@ texture = ExtResource("3_l47bt")
 position = Vector2(0, -780)
 scale = Vector2(1, 1)
 card = "1b"
-play_click_on_ready = false
+dummy = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Display"]
 offset_left = -1883.0

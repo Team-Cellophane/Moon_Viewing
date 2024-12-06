@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @export var card : String
-@export var play_click_on_ready = true
+@export var dummy = false
 
 @onready var _asp_click1 = $AudioStreamPlayer2DClick1
 @onready var _asp_click2 = $AudioStreamPlayer2DClick2
@@ -23,13 +23,15 @@ var border_offset = 70
 
 
 func _ready():
-	if (play_click_on_ready):
-		play_click()
 	load_page_content_sprite()
-	$"..".move_child(self, $"..".get_child_count())
+	if (!dummy):
+		play_click()
+		$"..".move_child(self, $"..".get_child_count())
 
 
 func _input(event):
+	if dummy:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		if (isSelected):
 			_shadow_sprite2d.visible = false
@@ -38,6 +40,8 @@ func _input(event):
 
 
 func _physics_process(delta):
+	if dummy:
+		return
 	z_index = Global.get_z_index("card") + get_index() + 1
 	if isSelected:
 		_shadow_sprite2d.visible = true
@@ -52,6 +56,8 @@ func _physics_process(delta):
 
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
+	if dummy:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and _is_top_most_sprite():
 		play_pick()
 		click_offset = position - get_global_mouse_position()
