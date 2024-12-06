@@ -26,6 +26,7 @@ func _ready():
 	if (play_click_on_ready):
 		play_click()
 	load_page_content_sprite()
+	$"..".move_child(self, $"..".get_child_count())
 
 
 func _input(event):
@@ -37,7 +38,7 @@ func _input(event):
 
 
 func _physics_process(delta):
-	z_index = Global.get_z_index("card") + order
+	z_index = Global.get_z_index("card") + get_index() + 1
 	if isSelected:
 		_shadow_sprite2d.visible = true
 		z_index = 301
@@ -56,6 +57,7 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		click_offset = position - get_global_mouse_position()
 		isSelected = true
 		Global.set_z_indecies("card")
+		$"..".move_child(self, $"..".get_child_count())
 
 func play_click():
 	var audio_stream_player = get_random_click_asp()
