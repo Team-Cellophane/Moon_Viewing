@@ -55,9 +55,6 @@ _data = {
 "RESET": SubResource("Animation_hr6f0")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xpyjp"]
-texture = ExtResource("6_mcv8h")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6qek"]
 texture = ExtResource("6_mcv8h")
 modulate_color = Color(1, 0.760784, 0.760784, 1)
@@ -66,18 +63,18 @@ modulate_color = Color(1, 0.760784, 0.760784, 1)
 texture = ExtResource("6_mcv8h")
 modulate_color = Color(0.658824, 0.658824, 0.658824, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2x5e2"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xpyjp"]
+texture = ExtResource("6_mcv8h")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qii8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a685"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g240v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kk6j"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a685"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qii8"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bc67o"]
-texture = ExtResource("8_gap8n")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2x5e2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1c0a"]
 texture = ExtResource("8_gap8n")
@@ -87,8 +84,8 @@ modulate_color = Color(1, 0.760784, 0.760784, 1)
 texture = ExtResource("8_gap8n")
 modulate_color = Color(0.658824, 0.658824, 0.658824, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3e6rh"]
-texture = ExtResource("11_3jvdg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bc67o"]
+texture = ExtResource("8_gap8n")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ggyi0"]
 texture = ExtResource("11_3jvdg")
@@ -97,6 +94,9 @@ modulate_color = Color(0.75, 1, 0.754167, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ai72"]
 texture = ExtResource("11_3jvdg")
 modulate_color = Color(0.66, 0.66, 0.66, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3e6rh"]
+texture = ExtResource("11_3jvdg")
 
 [node name="Main_Node2D" type="Node2D"]
 
@@ -158,9 +158,9 @@ offset_left = -1450.0
 offset_top = 363.0
 offset_right = -1123.0
 offset_bottom = 484.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_xpyjp")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d6qek")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qao5b")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xpyjp")
 icon_alignment = 1
 expand_icon = true
 
@@ -174,11 +174,11 @@ offset_left = -250.0
 offset_top = 550.0
 offset_right = 250.0
 offset_bottom = 600.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_2x5e2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7qii8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0a685")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_g240v")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2kk6j")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0a685")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_7qii8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2x5e2")
 
 [node name="Close_Button" type="Button" parent="RecipeHandler_Node2D/Drawer_Node2D"]
 z_index = 51
@@ -186,9 +186,9 @@ offset_left = 1105.0
 offset_top = 363.0
 offset_right = 1452.0
 offset_bottom = 485.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_bc67o")
 theme_override_styles/hover = SubResource("StyleBoxTexture_q1c0a")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w00q1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bc67o")
 expand_icon = true
 
 [node name="Ingredient-1_Sprite2D" parent="RecipeHandler_Node2D/Drawer_Node2D" instance=ExtResource("3_2rngn")]
@@ -821,23 +821,23 @@ offset_top = -94.0
 offset_right = 1319.0
 offset_bottom = 4.0
 scale = Vector2(2, 2)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(0, 0.6, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0.6, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.6, 0, 1)
 theme_override_colors/icon_hover_color = Color(0, 0.670588, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0.670588, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0.6, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0.6, 0, 1)
 theme_override_font_sizes/font_size = 45
-theme_override_styles/normal = SubResource("StyleBoxTexture_3e6rh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ggyi0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0ai72")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3e6rh")
 action_mode = 0
 alignment = 0
 icon_alignment = 2

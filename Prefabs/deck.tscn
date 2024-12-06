@@ -18,21 +18,18 @@ texture = ExtResource("1_lf60t")
 script = ExtResource("2_1upyi")
 
 [node name="AudioStreamPlayer2DResetSound1" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("3_fflit")
 max_distance = 4000.0
 max_polyphony = 12
 bus = &"SFX"
 
 [node name="AudioStreamPlayer2DResetSound2" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("4_xfnip")
 max_distance = 4000.0
 max_polyphony = 12
 bus = &"SFX"
 
 [node name="AudioStreamPlayer2DSelectSound" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("5_1rydc")
 max_distance = 4000.0
 max_polyphony = 12

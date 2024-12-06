@@ -126,4 +126,3 @@ func _get_sprite_global_rect(sprite):
 		size = new_size
 	var calc_position = sprite.global_position - (size / 2)
 	return Rect2(calc_position, size)
-

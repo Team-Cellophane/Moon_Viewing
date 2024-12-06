@@ -17,6 +17,7 @@ shader_parameter/strength = 0.0
 [sub_resource type="Animation" id="Animation_dh8qh"]
 resource_name = "blur_on"
 length = 5.0
+capture_included = true
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,6 +34,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_2u4my"]
 resource_name = "blur_on"
 length = 3.0
+capture_included = true
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -267,19 +269,19 @@ _data = {
 "RESET": SubResource("Animation_2uhf7")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fmmt"]
-texture = ExtResource("5_t2cjw")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypokd"]
 texture = ExtResource("5_t2cjw")
 modulate_color = Color(0.658824, 0.658824, 0.658824, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucvqd"]
-texture = ExtResource("6_lqmka")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fmmt"]
+texture = ExtResource("5_t2cjw")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_te33d"]
 texture = ExtResource("6_lqmka")
 modulate_color = Color(0.662452, 0.662452, 0.662452, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucvqd"]
+texture = ExtResource("6_lqmka")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6eort")
@@ -358,8 +360,8 @@ offset_top = 1850.0
 offset_right = 3619.0
 offset_bottom = 2043.0
 theme_override_font_sizes/font_size = 72
-theme_override_styles/normal = SubResource("StyleBoxTexture_0fmmt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ypokd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0fmmt")
 
 [node name="PlayButton" type="Button" parent="."]
 visible = false
@@ -368,8 +370,8 @@ offset_top = 1393.0
 offset_right = 2250.0
 offset_bottom = 1586.0
 theme_override_font_sizes/font_size = 72
-theme_override_styles/normal = SubResource("StyleBoxTexture_ucvqd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_te33d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ucvqd")
 
 [node name="PlaintextLetter" parent="." instance=ExtResource("6_64hv1")]
 position = Vector2(1920, 3000)

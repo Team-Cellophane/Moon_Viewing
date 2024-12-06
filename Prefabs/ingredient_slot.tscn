@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://chf32yv2kmj4u" path="res://Textures/TEMP/Tooltip.png" id="3_w5jql"]
 [ext_resource type="Texture2D" uid="uid://uiuw8m4eacxj" path="res://Textures/Ingredients/aether.png" id="4_vpflu"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkh04"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njqmr"]
+bg_color = Color(0, 0.716249, 0.391735, 0.470588)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hijp"]
 bg_color = Color(0.6, 0.6, 0.6, 0.666667)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njqmr"]
-bg_color = Color(0, 0.716249, 0.391735, 0.470588)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkh04"]
 
 [sub_resource type="Theme" id="Theme_37d4j"]
 default_font_size = 48
@@ -45,9 +45,9 @@ offset_left = -6.0
 offset_top = -6.0
 offset_right = 86.0
 offset_bottom = 86.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_pkh04")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3hijp")
 theme_override_styles/focus = SubResource("StyleBoxFlat_njqmr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3hijp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pkh04")
 icon_alignment = 1
 expand_icon = true
 

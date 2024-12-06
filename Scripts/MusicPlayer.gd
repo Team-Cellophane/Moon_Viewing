@@ -11,4 +11,3 @@ func play_scene_chord():
 func play_Moon_Viewing():
 	stream = load("res://Audio/Music/Moon Viewing.wav")
 	play()
-
