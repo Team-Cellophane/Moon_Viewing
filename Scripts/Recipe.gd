@@ -21,7 +21,7 @@ func build_and_submit_recipe():
 	else:
 		final_recipe = "w"
 	
-	for n in range(1, 6, 1):
+	for n in range(2, 7, 1):
 		var ingredient = _recipe_scroll.get_child(n).get_ingredient_definition()
 		if ingredient != null:
 			final_recipe += str(",", ingredient)
