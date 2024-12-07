@@ -702,9 +702,9 @@ color = Color(1, 0.984314, 0.886275, 1)
 
 [node name="Label" type="Label" parent="PageTop"]
 layout_mode = 0
-offset_left = 1203.0
+offset_left = 1150.0
 offset_top = 1694.0
-offset_right = 1872.0
+offset_right = 1819.0
 offset_bottom = 1796.0
 rotation = -1.57079
 scale = Vector2(2.532, 1)
