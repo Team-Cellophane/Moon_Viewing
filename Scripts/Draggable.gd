@@ -66,8 +66,6 @@ func _physics_process(delta):
 			returningHome = false
 		else:
 			position = lerp(position, home_position, 15 * delta)
-	#elif (!is_draggable and target_position != null and !within_range(target_position, position)):
-		#global_position = lerp(global_position, target_position, 25 * delta)
 	elif (target_position != null):
 		if  within_range(target_position, position):
 			target_position = null
