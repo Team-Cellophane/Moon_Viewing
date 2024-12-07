@@ -21,6 +21,7 @@ extends Sprite2D
 @onready var _asp_unfold = $AudioStreamPlayer2DUnfold
 
 @onready var _shadow_sprite2d = $ShadowSprite2D
+@onready var label: Label = $PageTop/Label
 
 var isOpen = false
 var isSelected = false
@@ -36,7 +37,12 @@ func _ready():
 	_min_button.visible = min_button_enabled
 	home_position = position
 	load_page_content_sprite(true)
-	
+	if is_letter:
+		label.text = "Letter"
+	elif is_decipher:
+		label.text = "Decipher"
+	else:
+		label.text = "Hanafuda"
 
 
 func _input(event):
